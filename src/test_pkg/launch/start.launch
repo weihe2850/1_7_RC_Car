@@ -1,0 +1,5 @@
+<launch>
+  <!-- 运行 talker 节点 -->
+  <node pkg="test_pkg" type="my_test" name="my_test" output="screen" />
+</launch>
+<!--     roslaunch test_pkg start.launch    -->
