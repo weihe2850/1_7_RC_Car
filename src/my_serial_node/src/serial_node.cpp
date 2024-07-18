@@ -28,7 +28,8 @@ const float Const_Gear_Ratio                   = 5.0f;
 
 float steering_angle = 0, current_data = 0, speed_RR = 0, speed_RL = 0;
 float V = 0, beta = 0, r = 0, accel_x = 0, accel_y = 0, speed_R = 0, delta = 0, TxR = 0;
-float save_csv_time = 50.0 ;
+float U_x= 0, U_y = 0, U_z = 0;
+float save_csv_time = 500.0 ;
 // 定义一个std::string类型的变量来存储CSV文件路径
 std::string csv_path = "/home/inin/weihe_ws/data/states.csv";
 // 定义状态量数组大小常量
@@ -55,7 +56,18 @@ void freeAccelerationCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg
     double accel_z = msg->vector.z;
 
 }
-
+void velocityCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg)
+{
+    // 访问加速度的x、y、z分量
+    U_x = msg->vector.x;
+    U_y = msg->vector.y;
+    U_z = msg->vector.z;
+    //ROS_INFO打印
+    
+    ROS_INFO_STREAM("Received velocity: " << U_x);
+    ROS_INFO_STREAM("Received velocity: " << U_y);
+    ROS_INFO_STREAM("Received velocity: " << U_z);
+}
 void saveToCSV(const std::vector<std::array<float, kStateSize>>& data, const std::string& filename) 
 {
     std::ofstream file(filename);
@@ -81,7 +93,8 @@ int main(int argc, char** argv)
 	ros::NodeHandle nh;
     ros::Publisher states_pub = nh.advertise<std_msgs::Float32MultiArray>("states", 1000);
     // 创建订阅者
-    ros::Subscriber free_accel_sub = nh.subscribe("/filter/free_acceleration", 1000, freeAccelerationCallback);
+    ros::Subscriber filter_free_accel_sub = nh.subscribe("/filter/free_acceleration", 1000, freeAccelerationCallback);
+    ros::Subscriber filter_velocity_sub = nh.subscribe("/filter/velocity", 1000, velocityCallback);
     // 发布的车辆状态
     std_msgs::Float32MultiArray states_array;
     // 使用std::array代替原生数组，提高类型安全性和便利性

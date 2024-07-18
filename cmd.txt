@@ -4,3 +4,7 @@ roslaunch xsens_ros_mti_driver display.launch
 roslaunch ntrip ntrip.launch    
 source ./devel/setup.bash   
 rosrun my_serial_node serial_node
+rostopic list
+rostopic echo /filter/velocity
+rostopic echo /gnss_pose
+
