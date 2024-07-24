@@ -60,7 +60,7 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp: /home/in
 /home/inin/weihe_ws/devel/include/xsens_mti_driver/XsStatusWord.h: /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg
 /home/inin/weihe_ws/devel/include/xsens_mti_driver/XsStatusWord.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from xsens_mti_driver/XsStatusWord.msg"
-	cd /home/inin/weihe_ws/src/xsens_ros_mti_driver && /home/inin/weihe_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg -Ixsens_mti_driver:/home/inin/weihe_ws/src/xsens_ros_mti_driver/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p xsens_mti_driver -o /home/inin/weihe_ws/devel/include/xsens_mti_driver -e /opt/ros/noetic/share/gencpp/cmake/..
+	cd /home/inin/weihe_ws/src/xsens_ros_mti_driver && /home/inin/weihe_ws/build/catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg -Ixsens_mti_driver:/home/inin/weihe_ws/src/xsens_ros_mti_driver/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p xsens_mti_driver -o /home/inin/weihe_ws/devel/include/xsens_mti_driver -e /opt/ros/noetic/share/gencpp/cmake/..
 
 xsens_mti_driver_generate_messages_cpp: xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp
 xsens_mti_driver_generate_messages_cpp: /home/inin/weihe_ws/devel/include/xsens_mti_driver/XsStatusWord.h

@@ -15,25 +15,26 @@
 
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/TwistStamped.h>
-#include <tf2/LinearMath/Quaternion.h>
-#include <tf2/convert.h>
 
 using namespace std;
 #define rBUFFER_SIZE 1024
 unsigned char r_buffer[rBUFFER_SIZE];
 
-const float Const_Output_to_Torque             = 0.0003662109375f;
-const float deg_2_rad                          = 0.017453292519943295769236907684886f;
-const float Const_Gear_Ratio                   = 5.0f;
+const float Const_Output_to_Torque             = 0.0003662109375f   ;
+const float deg_2_rad                          = 0.017453292519943295769236907684886f   ;
+const float Const_Gear_Ratio                   = 5.0f   ;
 
 float steering_angle = 0, current_data = 0, speed_RR = 0, speed_RL = 0;
-float V = 0, beta = 0, r = 0, accel_x = 0, accel_y = 0, speed_R = 0, delta = 0, TxR = 0;
-float U_x= 0, U_y = 0, U_z = 0;
-float save_csv_time = 500.0 ;
+double V = 0, beta = 0, r = 0, accel_x = 0, accel_y = 0, speed_R = 0, delta = 0, TxR = 0;
+double U_x= 0, U_y = 0, U_z = 0;
+double latitude = 0, longitude = 0 , altitude = 0 ;
+double roll = 0, pitch = 0 , yaw = 0 ;
+double save_csv_time = 20.0 ;
 // 定义一个std::string类型的变量来存储CSV文件路径
-std::string csv_path = "/home/inin/weihe_ws/data/states.csv";
+// std::string csv_path = "/home/inin/weihe_ws/data/states.csv";
+std::string csv_path = "/home/inin/weihe_ws/data/states1.csv";
 // 定义状态量数组大小常量
-constexpr size_t kStateSize = 8;
+
 // 使用枚举定义数组索引，提高代码可读性
 enum StateIndex {
     V_Index = 0,
@@ -43,9 +44,17 @@ enum StateIndex {
     accel_y_Index,
     speed_R_Index,
     delta_Index,
-    TxR_Index
-};
+    TxR_Index,
+    latitude_Index,
+    longitude_Index,
+    altitude_Index,
+    roll_Index,
+    pitch_Index,
+    yaw_Index,
 
+    StateSize
+};
+constexpr size_t kStateSize = StateSize;
 
 // 定义回调函数
 void freeAccelerationCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg)
@@ -53,22 +62,33 @@ void freeAccelerationCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg
     // 访问加速度的x、y、z分量
     accel_x = msg->vector.x;
     accel_y  = msg->vector.y;
-    double accel_z = msg->vector.z;
 
 }
-void velocityCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg)
-{
-    // 访问加速度的x、y、z分量
-    U_x = msg->vector.x;
-    U_y = msg->vector.y;
-    U_z = msg->vector.z;
-    //ROS_INFO打印
-    
-    ROS_INFO_STREAM("Received velocity: " << U_x);
-    ROS_INFO_STREAM("Received velocity: " << U_y);
-    ROS_INFO_STREAM("Received velocity: " << U_z);
+void eulerCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg) {
+    roll = msg->vector.x;
+    pitch = msg->vector.y;
+    yaw = msg->vector.z;
+
+    // 根据需要处理roll, pitch, yaw
 }
-void saveToCSV(const std::vector<std::array<float, kStateSize>>& data, const std::string& filename) 
+void twistCallback(const geometry_msgs::TwistStamped::ConstPtr& msg)
+{
+    // 访问线速度的x、y、z分量
+    U_x = msg->twist.linear.x;
+    U_y = msg->twist.linear.y;
+    r   = msg->twist.angular.z;
+    // 根据需要处理速度和角速度
+}
+
+void positionCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg) {
+    // 处理位置信息
+    latitude  = msg->vector.x;
+    ROS_INFO("latitude%.8f",latitude);
+    longitude = msg->vector.y;
+    altitude  = msg->vector.z;
+
+}
+void saveToCSV(const std::vector<std::array<double, kStateSize>>& data, const std::string& filename) 
 {
     std::ofstream file(filename);
     if (!file.is_open()) {
@@ -77,7 +97,7 @@ void saveToCSV(const std::vector<std::array<float, kStateSize>>& data, const std
     }
     for (const auto& entry : data) {
         for (size_t i = 0; i < kStateSize; ++i) {
-            file << entry[i];
+            file <<std::fixed<< std::setprecision(8)<< entry[i];
             if (i < kStateSize - 1) {
                 file << ",";
             }
@@ -92,14 +112,18 @@ int main(int argc, char** argv)
     //创建句柄（虽然后面没用到这个句柄，但如果不创建，运行时进程会出错）
 	ros::NodeHandle nh;
     ros::Publisher states_pub = nh.advertise<std_msgs::Float32MultiArray>("states", 1000);
+
     // 创建订阅者
     ros::Subscriber filter_free_accel_sub = nh.subscribe("/filter/free_acceleration", 1000, freeAccelerationCallback);
-    ros::Subscriber filter_velocity_sub = nh.subscribe("/filter/velocity", 1000, velocityCallback);
+    ros::Subscriber filter_twist_sub = nh.subscribe("filter/twist", 1000, twistCallback);
+    ros::Subscriber filter_positionlla_sub = nh.subscribe("/filter/positionlla", 1000, positionCallback);
+    ros::Subscriber filter_euler_sub = nh.subscribe("/filter/euler", 1000, eulerCallback);
+
     // 发布的车辆状态
     std_msgs::Float32MultiArray states_array;
     // 使用std::array代替原生数组，提高类型安全性和便利性
-    std::vector<std::array<float, kStateSize>> states_values_vector;
-    std::array<float, kStateSize> states_values = {};
+    std::vector<std::array<double, kStateSize>> states_values_vector;
+    std::array<double, kStateSize> states_values = {};
     //创建一个serial对象
     serial::Serial ser;
     //创建timeout
@@ -134,14 +158,15 @@ int main(int argc, char** argv)
     ros::Time start_time = ros::Time::now();
 	while(ros::ok())
 	{
-        ros::Time current_time = ros::Time::now();
-            // 检查是否已经记录了10秒的数据
-        if ((current_time - start_time).toSec() >= save_csv_time) {
-            // 保存数据
-            saveToCSV( states_values_vector , csv_path);
-            break; // 或者执行其他适当的操作
-        }
 
+        ros::Time current_time = ros::Time::now();
+        // 检查是否已经记录了10秒的数据
+        if ((current_time - start_time).toSec()>=save_csv_time ){
+        
+            saveToCSV( states_values_vector , csv_path);
+            ROS_INFO_STREAM("save");
+        }  
+        ROS_INFO_STREAM("time:"<<(current_time - start_time).toSec());
 		//ser.write(stm32_msg, 10);
         if(ser.available() >= 88) // 确保缓冲区有足够的数据
         {
@@ -172,9 +197,6 @@ int main(int argc, char** argv)
                         speed_R = ( -1 * speed_RR + speed_RL) / Const_Gear_Ratio / 2;
                         delta = steering_angle * deg_2_rad;
                         TxR  = current_data  * Const_Output_to_Torque;
-                        ROS_INFO_STREAM("Steering Angle: " << steering_angle << ", TxR: " << TxR);
-                        // ROS_INFO_STREAM("speed: " << speed_R);
-                        ROS_INFO_STREAM("speed_RR: " << speed_RR<< ", speed_RL;: " << speed_RL);
                     }
                 }
             }
@@ -182,14 +204,22 @@ int main(int argc, char** argv)
 
 
         // 更新特定索引的值
-        states_values[V_Index] = V;
-        states_values[beta_Index] = beta;
+        // 更新特定索引的值，并保留两位小数
+        // 直接更新特定索引的值，不保留小数
+        states_values[V_Index] = U_x;
+        states_values[beta_Index] = U_y;
         states_values[r_Index] = r;
         states_values[accel_x_Index] = accel_x;
         states_values[accel_y_Index] = accel_y;
         states_values[speed_R_Index] = speed_R;
         states_values[delta_Index] = delta;
         states_values[TxR_Index] = TxR;
+        states_values[latitude_Index] = latitude;
+        states_values[longitude_Index] = longitude;
+        states_values[altitude_Index] = altitude;
+        states_values[roll_Index] = roll;
+        states_values[pitch_Index] = pitch;
+        states_values[yaw_Index] = yaw;
         states_values_vector.push_back(states_values);
         
         // 发布车辆状态信息

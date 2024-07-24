@@ -60,12 +60,12 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py: /home/ini
 /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg/_XsStatusWord.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg/_XsStatusWord.py: /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG xsens_mti_driver/XsStatusWord"
-	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg -Ixsens_mti_driver:/home/inin/weihe_ws/src/xsens_ros_mti_driver/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p xsens_mti_driver -o /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg
+	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg -Ixsens_mti_driver:/home/inin/weihe_ws/src/xsens_ros_mti_driver/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p xsens_mti_driver -o /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg
 
 /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg/__init__.py: /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg/_XsStatusWord.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for xsens_mti_driver"
-	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg --initpy
+	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg --initpy
 
 xsens_mti_driver_generate_messages_py: xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py
 xsens_mti_driver_generate_messages_py: /home/inin/weihe_ws/devel/lib/python3/dist-packages/xsens_mti_driver/msg/_XsStatusWord.py

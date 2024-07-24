@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/inin/weihe_ws/build
 include xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/progress.make
 
 xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord:
-	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py xsens_mti_driver /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg 
+	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py xsens_mti_driver /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg 
 
 _xsens_mti_driver_generate_messages_check_deps_XsStatusWord: xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord
 _xsens_mti_driver_generate_messages_check_deps_XsStatusWord: xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/build.make

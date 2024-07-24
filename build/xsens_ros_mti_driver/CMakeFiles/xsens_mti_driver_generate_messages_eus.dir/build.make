@@ -60,11 +60,11 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus: /home/in
 /home/inin/weihe_ws/devel/share/roseus/ros/xsens_mti_driver/msg/XsStatusWord.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/inin/weihe_ws/devel/share/roseus/ros/xsens_mti_driver/msg/XsStatusWord.l: /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from xsens_mti_driver/XsStatusWord.msg"
-	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg -Ixsens_mti_driver:/home/inin/weihe_ws/src/xsens_ros_mti_driver/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p xsens_mti_driver -o /home/inin/weihe_ws/devel/share/roseus/ros/xsens_mti_driver/msg
+	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg -Ixsens_mti_driver:/home/inin/weihe_ws/src/xsens_ros_mti_driver/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p xsens_mti_driver -o /home/inin/weihe_ws/devel/share/roseus/ros/xsens_mti_driver/msg
 
 /home/inin/weihe_ws/devel/share/roseus/ros/xsens_mti_driver/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for xsens_mti_driver"
-	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/inin/weihe_ws/devel/share/roseus/ros/xsens_mti_driver xsens_mti_driver std_msgs
+	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/inin/weihe_ws/devel/share/roseus/ros/xsens_mti_driver xsens_mti_driver std_msgs
 
 xsens_mti_driver_generate_messages_eus: xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus
 xsens_mti_driver_generate_messages_eus: /home/inin/weihe_ws/devel/share/roseus/ros/xsens_mti_driver/msg/XsStatusWord.l

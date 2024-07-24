@@ -58,7 +58,7 @@ ntrip/CMakeFiles/ntrip_generate_messages_eus: /home/inin/weihe_ws/devel/share/ro
 
 /home/inin/weihe_ws/devel/share/roseus/ros/ntrip/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp manifest code for ntrip"
-	cd /home/inin/weihe_ws/build/ntrip && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/inin/weihe_ws/devel/share/roseus/ros/ntrip ntrip geometry_msgs
+	cd /home/inin/weihe_ws/build/ntrip && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/inin/weihe_ws/devel/share/roseus/ros/ntrip ntrip geometry_msgs
 
 ntrip_generate_messages_eus: ntrip/CMakeFiles/ntrip_generate_messages_eus
 ntrip_generate_messages_eus: /home/inin/weihe_ws/devel/share/roseus/ros/ntrip/manifest.l

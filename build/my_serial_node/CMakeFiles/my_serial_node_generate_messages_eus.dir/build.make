@@ -58,7 +58,7 @@ my_serial_node/CMakeFiles/my_serial_node_generate_messages_eus: /home/inin/weihe
 
 /home/inin/weihe_ws/devel/share/roseus/ros/my_serial_node/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp manifest code for my_serial_node"
-	cd /home/inin/weihe_ws/build/my_serial_node && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/inin/weihe_ws/devel/share/roseus/ros/my_serial_node my_serial_node std_msgs
+	cd /home/inin/weihe_ws/build/my_serial_node && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/inin/weihe_ws/devel/share/roseus/ros/my_serial_node my_serial_node std_msgs
 
 my_serial_node_generate_messages_eus: my_serial_node/CMakeFiles/my_serial_node_generate_messages_eus
 my_serial_node_generate_messages_eus: /home/inin/weihe_ws/devel/share/roseus/ros/my_serial_node/manifest.l

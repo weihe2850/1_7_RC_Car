@@ -59,7 +59,7 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs: /home
 /home/inin/weihe_ws/devel/share/gennodejs/ros/xsens_mti_driver/msg/XsStatusWord.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/inin/weihe_ws/devel/share/gennodejs/ros/xsens_mti_driver/msg/XsStatusWord.js: /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from xsens_mti_driver/XsStatusWord.msg"
-	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg -Ixsens_mti_driver:/home/inin/weihe_ws/src/xsens_ros_mti_driver/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p xsens_mti_driver -o /home/inin/weihe_ws/devel/share/gennodejs/ros/xsens_mti_driver/msg
+	cd /home/inin/weihe_ws/build/xsens_ros_mti_driver && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/inin/weihe_ws/src/xsens_ros_mti_driver/msg/XsStatusWord.msg -Ixsens_mti_driver:/home/inin/weihe_ws/src/xsens_ros_mti_driver/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p xsens_mti_driver -o /home/inin/weihe_ws/devel/share/gennodejs/ros/xsens_mti_driver/msg
 
 xsens_mti_driver_generate_messages_nodejs: xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs
 xsens_mti_driver_generate_messages_nodejs: /home/inin/weihe_ws/devel/share/gennodejs/ros/xsens_mti_driver/msg/XsStatusWord.js

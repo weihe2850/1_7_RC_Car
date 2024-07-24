@@ -15,7 +15,6 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(Eigen REQUIRED)
 
 
-
 generate_messages(
   DEPENDENCIES
   std_msgs

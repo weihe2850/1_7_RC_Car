@@ -7,8 +7,6 @@ my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o
  /opt/ros/noetic/include/geometry_msgs/Pose.h
  /opt/ros/noetic/include/geometry_msgs/PoseStamped.h
  /opt/ros/noetic/include/geometry_msgs/Quaternion.h
- /opt/ros/noetic/include/geometry_msgs/Transform.h
- /opt/ros/noetic/include/geometry_msgs/TransformStamped.h
  /opt/ros/noetic/include/geometry_msgs/Twist.h
  /opt/ros/noetic/include/geometry_msgs/TwistStamped.h
  /opt/ros/noetic/include/geometry_msgs/Vector3.h
@@ -77,14 +75,5 @@ my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o
  /opt/ros/noetic/include/std_msgs/MultiArrayDimension.h
  /opt/ros/noetic/include/std_msgs/MultiArrayLayout.h
  /opt/ros/noetic/include/std_msgs/String.h
- /opt/ros/noetic/include/tf2/LinearMath/MinMax.h
- /opt/ros/noetic/include/tf2/LinearMath/QuadWord.h
- /opt/ros/noetic/include/tf2/LinearMath/Quaternion.h
- /opt/ros/noetic/include/tf2/LinearMath/Scalar.h
- /opt/ros/noetic/include/tf2/LinearMath/Vector3.h
- /opt/ros/noetic/include/tf2/convert.h
- /opt/ros/noetic/include/tf2/exceptions.h
- /opt/ros/noetic/include/tf2/impl/convert.h
- /opt/ros/noetic/include/tf2/transform_datatypes.h
  /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
  /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h

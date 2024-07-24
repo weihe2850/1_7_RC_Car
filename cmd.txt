@@ -7,4 +7,75 @@ rosrun my_serial_node serial_node
 rostopic list
 rostopic echo /filter/velocity
 rostopic echo /gnss_pose
+rostopic echo /nmea
+rostopic echo /states
+rostopic echo /filter/twist
+rostopic echo /filter/euler
+rostopic echo /filter/positionlla
+vector: 
+  x: 39.96276488341391
+  y: 116.30506868311205
+  z: 43.7243706244044
+---
+vector: 
+  x: 39.96276490646415
+  y: 116.30506842792967
+  z: 43.72855246812105
+vector: 
+  x: 39.962764911120765
+  y: 116.30506863165647
+  z: 43.74158919462934
+---
+vector: 
+  x: 39.96276458702051
+  y: 116.3050685285125
+  z: 43.73319551791065
 
+
+
+# 克隆仓库
+git clone <仓库地址>
+
+# 查看当前状态
+git status
+
+# 添加文件到暂存区
+git add <文件名>
+git add .
+
+# 提交更改
+git commit -m "提交信息"
+
+# 查看提交历史
+git log
+
+# 切换分支
+git checkout <分支名>
+git switch <分支名>
+
+# 创建新分支
+git branch <新分支名>
+
+# 合并分支
+git merge <分支名>
+
+# 拉取远程仓库的变化并合并
+git pull
+
+# 推送本地变化到远程仓库
+git push
+
+# 查看远程仓库
+git remote -v
+
+# 查看分支
+git branch
+
+# 删除分支
+git branch -d <分支名>
+
+# 暂存当前工作区
+git stash
+
+# 应用暂存的工作区
+git stash pop

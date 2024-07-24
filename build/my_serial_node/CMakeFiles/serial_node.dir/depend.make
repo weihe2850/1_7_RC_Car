@@ -6,8 +6,6 @@ my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/Pose.h
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/PoseStamped.h
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/Quaternion.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/Transform.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/TransformStamped.h
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/Twist.h
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/TwistStamped.h
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/Vector3.h
@@ -76,15 +74,6 @@ my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/std_msgs/MultiArrayDimension.h
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/std_msgs/MultiArrayLayout.h
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/std_msgs/String.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/MinMax.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/QuadWord.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/Quaternion.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/Scalar.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/tf2/LinearMath/Vector3.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/tf2/convert.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/tf2/exceptions.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/tf2/impl/convert.h
-my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/tf2/transform_datatypes.h
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 my_serial_node/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h
 
