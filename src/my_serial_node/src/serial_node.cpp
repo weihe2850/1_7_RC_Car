@@ -31,9 +31,10 @@ double latitude = 0, longitude = 0 , altitude = 0 ;
 double roll = 0, pitch = 0 , yaw = 0 ;
 double save_csv_time = 20.0 ;
 // 定义一个std::string类型的变量来存储CSV文件路径
+// std::string csv_path = "/home/inin/weihe_ws/data/tracking_garden.csv";
+// std::string csv_path = "/home/inin/weihe_ws/data/drift2.csv";
 std::string csv_path = "/home/inin/weihe_ws/data/states.csv";
-// std::string csv_path = "/home/inin/weihe_ws/data/states1.csv";
-// std::string csv_path = "/home/inin/weihe_ws/data/test_2m.csv";
+// std::string csv_path = "/home/inin/weihe_ws/data/test_garden1.csv";
 
 // 定义状态量数组大小常量
 
@@ -67,9 +68,9 @@ void freeAccelerationCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg
 
 }
 void eulerCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg) {
-    roll = msg->vector.x;
-    pitch = msg->vector.y;
-    yaw = msg->vector.z;
+    roll = msg->vector.x  * M_PI / 180.0;
+    pitch = msg->vector.y  * M_PI / 180.0;
+    yaw = msg->vector.z  * M_PI / 180.0;
 
     // 根据需要处理roll, pitch, yaw
 }
@@ -86,7 +87,6 @@ void twistCallback(const geometry_msgs::TwistStamped::ConstPtr& msg)
 void positionCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg) {
     // 处理位置信息
     latitude  = msg->vector.x;
-    ROS_INFO("latitude%.8f",latitude);
     longitude = msg->vector.y;
     altitude  = msg->vector.z;
 
@@ -166,7 +166,7 @@ int main(int argc, char** argv)
         ros::Time current_time = ros::Time::now();
         // 检查是否已经记录了10秒的数据
         if ((current_time - start_time).toSec()>=save_csv_time ){
-        
+            save_csv_time =save_csv_time +save_csv_time ;
             saveToCSV( states_values_vector , csv_path);
             ROS_INFO_STREAM("save");
         }  
@@ -221,9 +221,9 @@ int main(int argc, char** argv)
         states_values[latitude_Index] = latitude;
         states_values[longitude_Index] = longitude;
         states_values[altitude_Index] = altitude;
-        states_values[roll_Index] = roll * M_PI / 180.0;
-        states_values[pitch_Index] = pitch * M_PI / 180.0;
-        states_values[yaw_Index] = yaw * M_PI / 180.0;
+        states_values[roll_Index] = roll;
+        states_values[pitch_Index] = pitch ;
+        states_values[yaw_Index] = yaw ;
         states_values_vector.push_back(states_values);
         
         // 发布车辆状态信息

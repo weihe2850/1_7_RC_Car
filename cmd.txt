@@ -1,5 +1,6 @@
 roslaunch my_serial_node start.launch   
 rosrun my_serial_node Control_node
+find ./ -type f |xargs touch
 roslaunch xsens_ros_mti_driver xsens_mti_node.launch
 roslaunch xsens_ros_mti_driver display.launch
 roslaunch ntrip ntrip.launch    
@@ -13,6 +14,7 @@ rostopic echo /states
 rostopic echo /filter/twist
 rostopic echo /filter/euler
 rostopic echo /filter/positionlla
+
 vector: 
   x: 39.96276488341391
   y: 116.30506868311205

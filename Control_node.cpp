@@ -48,7 +48,7 @@ double latitude = 0, longitude = 0 , altitude = 0 ;
 double roll = 0, pitch = 0 , yaw = 0 ;
 double save_csv_time = 20.0 ;
 // 定义一个std::string类型的变量来存储CSV文件路径
-std::string csv_file_path = "/home/inin/weihe_ws/data/map_garden.csv";
+std::string csv_file_path = "/home/inin/weihe_ws/data/test_garden.csv";
 
 // 使用枚举定义数组索引，提高代码可读性
 enum StateIndex {
