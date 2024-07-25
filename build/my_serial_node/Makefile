@@ -708,6 +708,21 @@ tf2_msgs_generate_messages_cpp/fast:
 .PHONY : tf2_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
+my_serial_node/CMakeFiles/Control_node.dir/rule:
+	cd /home/inin/weihe_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_serial_node/CMakeFiles/Control_node.dir/rule
+.PHONY : my_serial_node/CMakeFiles/Control_node.dir/rule
+
+# Convenience name for target.
+Control_node: my_serial_node/CMakeFiles/Control_node.dir/rule
+
+.PHONY : Control_node
+
+# fast build rule for target.
+Control_node/fast:
+	cd /home/inin/weihe_ws/build && $(MAKE) -f my_serial_node/CMakeFiles/Control_node.dir/build.make my_serial_node/CMakeFiles/Control_node.dir/build
+.PHONY : Control_node/fast
+
+# Convenience name for target.
 my_serial_node/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
 	cd /home/inin/weihe_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_serial_node/CMakeFiles/roscpp_generate_messages_eus.dir/rule
 .PHONY : my_serial_node/CMakeFiles/roscpp_generate_messages_eus.dir/rule
@@ -812,6 +827,33 @@ actionlib_msgs_generate_messages_lisp/fast:
 	cd /home/inin/weihe_ws/build && $(MAKE) -f my_serial_node/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make my_serial_node/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 .PHONY : actionlib_msgs_generate_messages_lisp/fast
 
+src/Control_node.o: src/Control_node.cpp.o
+
+.PHONY : src/Control_node.o
+
+# target to build an object file
+src/Control_node.cpp.o:
+	cd /home/inin/weihe_ws/build && $(MAKE) -f my_serial_node/CMakeFiles/Control_node.dir/build.make my_serial_node/CMakeFiles/Control_node.dir/src/Control_node.cpp.o
+.PHONY : src/Control_node.cpp.o
+
+src/Control_node.i: src/Control_node.cpp.i
+
+.PHONY : src/Control_node.i
+
+# target to preprocess a source file
+src/Control_node.cpp.i:
+	cd /home/inin/weihe_ws/build && $(MAKE) -f my_serial_node/CMakeFiles/Control_node.dir/build.make my_serial_node/CMakeFiles/Control_node.dir/src/Control_node.cpp.i
+.PHONY : src/Control_node.cpp.i
+
+src/Control_node.s: src/Control_node.cpp.s
+
+.PHONY : src/Control_node.s
+
+# target to generate assembly for a file
+src/Control_node.cpp.s:
+	cd /home/inin/weihe_ws/build && $(MAKE) -f my_serial_node/CMakeFiles/Control_node.dir/build.make my_serial_node/CMakeFiles/Control_node.dir/src/Control_node.cpp.s
+.PHONY : src/Control_node.cpp.s
+
 src/serial_node.o: src/serial_node.cpp.o
 
 .PHONY : src/serial_node.o
@@ -888,6 +930,7 @@ help:
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... rebuild_cache"
+	@echo "... Control_node"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_nodejs"
@@ -895,6 +938,9 @@ help:
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_lisp"
+	@echo "... src/Control_node.o"
+	@echo "... src/Control_node.i"
+	@echo "... src/Control_node.s"
 	@echo "... src/serial_node.o"
 	@echo "... src/serial_node.i"
 	@echo "... src/serial_node.s"

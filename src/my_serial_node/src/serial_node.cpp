@@ -3,7 +3,7 @@
 #include <iomanip> // 对于 std::setw 和 std::setfill
 #include <sstream> // 对于 std::stringstream
 #include <fstream>
-
+#include <cmath> // 确保包含了这个头文件
 #include <array>
 #include <ros/ros.h>
 #include <std_msgs/Float32.h>
@@ -26,19 +26,21 @@ const float Const_Gear_Ratio                   = 5.0f   ;
 
 float steering_angle = 0, current_data = 0, speed_RR = 0, speed_RL = 0;
 double V = 0, beta = 0, r = 0, accel_x = 0, accel_y = 0, speed_R = 0, delta = 0, TxR = 0;
-double U_x= 0, U_y = 0, U_z = 0;
+double Ux= 0, Uy = 0, U_z = 0;
 double latitude = 0, longitude = 0 , altitude = 0 ;
 double roll = 0, pitch = 0 , yaw = 0 ;
 double save_csv_time = 20.0 ;
 // 定义一个std::string类型的变量来存储CSV文件路径
-// std::string csv_path = "/home/inin/weihe_ws/data/states.csv";
-std::string csv_path = "/home/inin/weihe_ws/data/states1.csv";
+std::string csv_path = "/home/inin/weihe_ws/data/states.csv";
+// std::string csv_path = "/home/inin/weihe_ws/data/states1.csv";
+// std::string csv_path = "/home/inin/weihe_ws/data/test_2m.csv";
+
 // 定义状态量数组大小常量
 
 // 使用枚举定义数组索引，提高代码可读性
 enum StateIndex {
-    V_Index = 0,
-    beta_Index,
+    Ux_Index = 0,
+    Uy_Index,
     r_Index,
     accel_x_Index,
     accel_y_Index,
@@ -73,10 +75,11 @@ void eulerCallback(const geometry_msgs::Vector3Stamped::ConstPtr& msg) {
 }
 void twistCallback(const geometry_msgs::TwistStamped::ConstPtr& msg)
 {
-    // 访问线速度的x、y、z分量
-    U_x = msg->twist.linear.x;
-    U_y = msg->twist.linear.y;
-    r   = msg->twist.angular.z;
+
+    // 假设yaw和msg已经定义
+    Ux = msg->twist.linear.x * std::cos(yaw) + msg->twist.linear.y * std::sin(yaw);
+    Uy = -msg->twist.linear.x * std::sin(yaw) + msg->twist.linear.y * std::cos(yaw);
+    r = msg->twist.angular.z;
     // 根据需要处理速度和角速度
 }
 
@@ -109,6 +112,7 @@ int main(int argc, char** argv)
 {
 
     ros::init(argc, argv, "serial_port");
+    ROS_INFO("1");
     //创建句柄（虽然后面没用到这个句柄，但如果不创建，运行时进程会出错）
 	ros::NodeHandle nh;
     ros::Publisher states_pub = nh.advertise<std_msgs::Float32MultiArray>("states", 1000);
@@ -206,8 +210,8 @@ int main(int argc, char** argv)
         // 更新特定索引的值
         // 更新特定索引的值，并保留两位小数
         // 直接更新特定索引的值，不保留小数
-        states_values[V_Index] = U_x;
-        states_values[beta_Index] = U_y;
+        states_values[Ux_Index] = Ux;
+        states_values[Uy_Index] = Uy;
         states_values[r_Index] = r;
         states_values[accel_x_Index] = accel_x;
         states_values[accel_y_Index] = accel_y;
@@ -217,9 +221,9 @@ int main(int argc, char** argv)
         states_values[latitude_Index] = latitude;
         states_values[longitude_Index] = longitude;
         states_values[altitude_Index] = altitude;
-        states_values[roll_Index] = roll;
-        states_values[pitch_Index] = pitch;
-        states_values[yaw_Index] = yaw;
+        states_values[roll_Index] = roll * M_PI / 180.0;
+        states_values[pitch_Index] = pitch * M_PI / 180.0;
+        states_values[yaw_Index] = yaw * M_PI / 180.0;
         states_values_vector.push_back(states_values);
         
         // 发布车辆状态信息

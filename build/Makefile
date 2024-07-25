@@ -753,6 +753,19 @@ tf2_msgs_generate_messages_cpp/fast:
 .PHONY : tf2_msgs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named Control_node
+
+# Build rule for target.
+Control_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Control_node
+.PHONY : Control_node
+
+# fast build rule for target.
+Control_node/fast:
+	$(MAKE) -f my_serial_node/CMakeFiles/Control_node.dir/build.make my_serial_node/CMakeFiles/Control_node.dir/build
+.PHONY : Control_node/fast
+
+#=============================================================================
 # Target rules for targets named roscpp_generate_messages_eus
 
 # Build rule for target.
@@ -1629,6 +1642,7 @@ help:
 	@echo "... my_serial_node_genlisp"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_cpp"
+	@echo "... Control_node"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_eus"
 	@echo "... tf2_msgs_generate_messages_nodejs"

@@ -147,6 +147,7 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 # Recursive "all" directory target.
 my_serial_node/all: my_serial_node/CMakeFiles/my_serial_node_generate_messages.dir/all
 my_serial_node/all: my_serial_node/CMakeFiles/serial_node.dir/all
+my_serial_node/all: my_serial_node/CMakeFiles/Control_node.dir/all
 
 .PHONY : my_serial_node/all
 
@@ -192,6 +193,7 @@ my_serial_node/clean: my_serial_node/CMakeFiles/geometry_msgs_generate_messages_
 my_serial_node/clean: my_serial_node/CMakeFiles/my_serial_node_genlisp.dir/clean
 my_serial_node/clean: my_serial_node/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 my_serial_node/clean: my_serial_node/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/clean
+my_serial_node/clean: my_serial_node/CMakeFiles/Control_node.dir/clean
 my_serial_node/clean: my_serial_node/CMakeFiles/roscpp_generate_messages_eus.dir/clean
 my_serial_node/clean: my_serial_node/CMakeFiles/tf2_msgs_generate_messages_eus.dir/clean
 my_serial_node/clean: my_serial_node/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/clean
@@ -454,7 +456,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=3,4 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=5,6 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -481,7 +483,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=1,2 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=3,4 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -508,7 +510,7 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=7,8 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=9,10 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -535,7 +537,7 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=5,6 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=7,8 "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -643,7 +645,7 @@ my_serial_node/CMakeFiles/my_serial_node_gennodejs.dir/clean:
 my_serial_node/CMakeFiles/my_serial_node_generate_messages_eus.dir/all: my_serial_node/CMakeFiles/std_msgs_generate_messages_eus.dir/all
 	$(MAKE) -f my_serial_node/CMakeFiles/my_serial_node_generate_messages_eus.dir/build.make my_serial_node/CMakeFiles/my_serial_node_generate_messages_eus.dir/depend
 	$(MAKE) -f my_serial_node/CMakeFiles/my_serial_node_generate_messages_eus.dir/build.make my_serial_node/CMakeFiles/my_serial_node_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=9 "Built target my_serial_node_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=11 "Built target my_serial_node_generate_messages_eus"
 .PHONY : my_serial_node/CMakeFiles/my_serial_node_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1295,7 +1297,7 @@ my_serial_node/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
 my_serial_node/CMakeFiles/serial_node.dir/all:
 	$(MAKE) -f my_serial_node/CMakeFiles/serial_node.dir/build.make my_serial_node/CMakeFiles/serial_node.dir/depend
 	$(MAKE) -f my_serial_node/CMakeFiles/serial_node.dir/build.make my_serial_node/CMakeFiles/serial_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=17,18 "Built target serial_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=19,20 "Built target serial_node"
 .PHONY : my_serial_node/CMakeFiles/serial_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1532,6 +1534,33 @@ my_serial_node/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/clean:
 .PHONY : my_serial_node/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
+# Target rules for target my_serial_node/CMakeFiles/Control_node.dir
+
+# All Build rule for target.
+my_serial_node/CMakeFiles/Control_node.dir/all:
+	$(MAKE) -f my_serial_node/CMakeFiles/Control_node.dir/build.make my_serial_node/CMakeFiles/Control_node.dir/depend
+	$(MAKE) -f my_serial_node/CMakeFiles/Control_node.dir/build.make my_serial_node/CMakeFiles/Control_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=1,2 "Built target Control_node"
+.PHONY : my_serial_node/CMakeFiles/Control_node.dir/all
+
+# Build rule for subdir invocation for target.
+my_serial_node/CMakeFiles/Control_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/inin/weihe_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 my_serial_node/CMakeFiles/Control_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/inin/weihe_ws/build/CMakeFiles 0
+.PHONY : my_serial_node/CMakeFiles/Control_node.dir/rule
+
+# Convenience name for target.
+Control_node: my_serial_node/CMakeFiles/Control_node.dir/rule
+
+.PHONY : Control_node
+
+# clean rule for target.
+my_serial_node/CMakeFiles/Control_node.dir/clean:
+	$(MAKE) -f my_serial_node/CMakeFiles/Control_node.dir/build.make my_serial_node/CMakeFiles/Control_node.dir/clean
+.PHONY : my_serial_node/CMakeFiles/Control_node.dir/clean
+
+#=============================================================================
 # Target rules for target my_serial_node/CMakeFiles/roscpp_generate_messages_eus.dir
 
 # All Build rule for target.
@@ -1727,7 +1756,7 @@ my_serial_node/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean:
 test_pkg/CMakeFiles/my_test.dir/all:
 	$(MAKE) -f test_pkg/CMakeFiles/my_test.dir/build.make test_pkg/CMakeFiles/my_test.dir/depend
 	$(MAKE) -f test_pkg/CMakeFiles/my_test.dir/build.make test_pkg/CMakeFiles/my_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=10,11 "Built target my_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=12,13 "Built target my_test"
 .PHONY : test_pkg/CMakeFiles/my_test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1754,7 +1783,7 @@ test_pkg/CMakeFiles/my_test.dir/clean:
 ntrip/CMakeFiles/ntrip_node.dir/all:
 	$(MAKE) -f ntrip/CMakeFiles/ntrip_node.dir/build.make ntrip/CMakeFiles/ntrip_node.dir/depend
 	$(MAKE) -f ntrip/CMakeFiles/ntrip_node.dir/build.make ntrip/CMakeFiles/ntrip_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=13,14,15,16 "Built target ntrip_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=15,16,17,18 "Built target ntrip_node"
 .PHONY : ntrip/CMakeFiles/ntrip_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2487,7 +2516,7 @@ ntrip/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
 ntrip/CMakeFiles/ntrip_generate_messages_eus.dir/all: my_serial_node/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 	$(MAKE) -f ntrip/CMakeFiles/ntrip_generate_messages_eus.dir/build.make ntrip/CMakeFiles/ntrip_generate_messages_eus.dir/depend
 	$(MAKE) -f ntrip/CMakeFiles/ntrip_generate_messages_eus.dir/build.make ntrip/CMakeFiles/ntrip_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=12 "Built target ntrip_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=14 "Built target ntrip_generate_messages_eus"
 .PHONY : ntrip/CMakeFiles/ntrip_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2677,7 +2706,7 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/all: 
 xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/all: xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/all
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/depend
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=20,21 "Built target xsens_mti_driver_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=22,23 "Built target xsens_mti_driver_generate_messages_eus"
 .PHONY : xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2813,7 +2842,7 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/all: 
 xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/all: xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/all
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/depend
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=19 "Built target xsens_mti_driver_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=21 "Built target xsens_mti_driver_generate_messages_cpp"
 .PHONY : xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3007,7 +3036,7 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/al
 xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/all: xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/all
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/depend
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=23 "Built target xsens_mti_driver_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=25 "Built target xsens_mti_driver_generate_messages_nodejs"
 .PHONY : xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3062,7 +3091,7 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/all:
 xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/all: xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/all
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/depend
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=22 "Built target xsens_mti_driver_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=24 "Built target xsens_mti_driver_generate_messages_lisp"
 .PHONY : xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3117,7 +3146,7 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/all: m
 xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/all: xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/all
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/depend
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=24,25 "Built target xsens_mti_driver_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=26,27 "Built target xsens_mti_driver_generate_messages_py"
 .PHONY : xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3220,7 +3249,7 @@ xsens_ros_mti_driver/CMakeFiles/xsens_mti_node.dir/all: xsens_ros_mti_driver/CMa
 xsens_ros_mti_driver/CMakeFiles/xsens_mti_node.dir/all: xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_lisp.dir/all
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_node.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_node.dir/depend
 	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_node.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=26,27,28,29,30,31,32 "Built target xsens_mti_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=28,29,30,31,32,33,34 "Built target xsens_mti_node"
 .PHONY : xsens_ros_mti_driver/CMakeFiles/xsens_mti_node.dir/all
 
 # Build rule for subdir invocation for target.

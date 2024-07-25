@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/inin/weihe_ws/src/my_serial_node/src/serial_node.cpp
+/home/inin/weihe_ws/src/my_serial_node/src/Control_node.cpp
 iostream
 -
 string
@@ -18,6 +18,8 @@ sstream
 fstream
 -
 cmath
+-
+iomanip
 -
 array
 -

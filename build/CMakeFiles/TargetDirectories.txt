@@ -78,6 +78,7 @@
 /home/inin/weihe_ws/build/my_serial_node/CMakeFiles/std_msgs_generate_messages_cpp.dir
 /home/inin/weihe_ws/build/my_serial_node/CMakeFiles/tf2_msgs_generate_messages_cpp.dir
 /home/inin/weihe_ws/build/my_serial_node/CMakeFiles/rebuild_cache.dir
+/home/inin/weihe_ws/build/my_serial_node/CMakeFiles/Control_node.dir
 /home/inin/weihe_ws/build/my_serial_node/CMakeFiles/roscpp_generate_messages_eus.dir
 /home/inin/weihe_ws/build/my_serial_node/CMakeFiles/tf2_msgs_generate_messages_eus.dir
 /home/inin/weihe_ws/build/my_serial_node/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir

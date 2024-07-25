@@ -44,3 +44,8 @@ target_link_libraries(serial_node
   ${catkin_LIBRARIES}
 )
 
+
+add_executable(Control_node src/Control_node.cpp)
+target_link_libraries(Control_node
+  ${catkin_LIBRARIES}
+)
