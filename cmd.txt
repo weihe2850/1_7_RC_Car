@@ -50,6 +50,7 @@ git add .
 git commit -m "提交信息"
 
 # 查看提交历史
+7
 git log
 
 # 切换分支
