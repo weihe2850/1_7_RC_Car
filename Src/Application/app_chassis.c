@@ -134,6 +134,13 @@ void Chassis_SetMotorRef_RWD(float ref) {
     Chassis_SetSingleMotorRef(3,  (ref - refSign * Const_Rear_Motor_Bias));
 }
 
+void Chassis_SetMotorRef_4WD(float ref) {
+    float refSign = (ref > 0) ? 1.0f : ((ref < 0) ? -1.0f : 0.0f); 
+    Chassis_SetSingleMotorRef(0, ref);
+    Chassis_SetSingleMotorRef(1, -ref);
+    Chassis_SetSingleMotorRef(2, -ref);
+    Chassis_SetSingleMotorRef(3, ref);
+}
 
 
 

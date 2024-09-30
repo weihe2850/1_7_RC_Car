@@ -2,6 +2,8 @@
     "files.associations": {
         "sys_const.h": "c",
         "util_uart.h": "c",
-        "protocol_common.h": "c"
+        "protocol_common.h": "c",
+        "app_remote.h": "c",
+        "app_chassis.h": "c"
     }
 }

@@ -20,7 +20,8 @@ extern "C" {
 #include "util_spi.h"
 #include "util_uart.h"
 
-extern const float Const_SERVO_INIT_OFFSET;
+extern float Const_SERVO_INIT_OFFSET;
+extern const float Const_SERVO_INIT_OFFSET_ORIGINAL;
 extern float Const_Remote_Speed_Gain;
 extern const float Const_Remote_Steer_Gain;
 extern float Const_Remote_Torque_Gain;
@@ -41,7 +42,7 @@ extern const float Const_Remote_REMOTE_OFFLINE_TIME;
 extern const float Const_Motor_MOTOR_OFFLINE_TIME;
 extern const uint16_t Const_Protocol_OFFLINE_TIME;
 extern UART_HandleTypeDef* Const_Comm_UART_HANDLER;
-
+void SetServoInitOffset(float newValue);
 #endif
 
 #ifdef __cplusplus

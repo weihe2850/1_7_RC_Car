@@ -38,7 +38,8 @@ void Remote_GestureFunction_2(void);
 void Remote_GestureFunction_3(void);
 void Remote_GestureFunction_4(void);
 void Remote_RemoteProcess(void);
-
+void Remote_RemoteProcess_4WD(void);
+void Remote_RemoteProcess_RWD(void);
 #endif
 
 #ifdef __cplusplus

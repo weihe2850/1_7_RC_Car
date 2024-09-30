@@ -77,16 +77,69 @@ void Remote_ControlCom() {
             case Remote_SWITCH_MIDDLE: {
                 Chassis_ChangeRemoteMode(Chassis_Remote);
                 Chassis_ChangeMode(Chassis_speed);
-                Remote_RemoteProcess();
+                Remote_RemoteProcess_RWD();
                 // Remote_KeyMouseProcess();
                 break;
             }
             case Remote_SWITCH_DOWN: {
                 Chassis_ChangeRemoteMode(Chassis_Remote);
                 Chassis_ChangeMode(Chassis_torque);
-                Remote_RemoteProcess();
+                Remote_RemoteProcess_RWD();
                 break;
             }
+            default:
+                break;
+        }
+    }
+    else if (data->remote.s[0] == Remote_SWITCH_MIDDLE) {
+        switch (data->remote.s[1]) {
+            case Remote_SWITCH_UP: {
+                Chassis_ChangeRemoteMode(Chassis_Auto);
+                Remote_Gesture();
+                break;
+            }
+            case Remote_SWITCH_MIDDLE: {
+                Chassis_ChangeRemoteMode(Chassis_Remote);
+                Chassis_ChangeMode(Chassis_speed);
+                Remote_RemoteProcess_4WD();
+                // Remote_KeyMouseProcess();
+                break;
+            }
+            case Remote_SWITCH_DOWN: {
+                Chassis_ChangeRemoteMode(Chassis_Remote);
+                Chassis_ChangeMode(Chassis_torque);
+                Remote_RemoteProcess_4WD();
+                break;
+            }
+            default:
+                break;
+        }
+    }
+    else if (data->remote.s[0] == Remote_SWITCH_DOWN) {
+        switch (data->remote.s[1]) {
+            case Remote_SWITCH_MIDDLE: {
+                SetServoInitOffset(-data->remote.ch[2] / 3 * Const_Remote_Steer_Gain * Const_Angle_to_Duty_Gain) ;
+                Chassis_ChangeRemoteMode(Chassis_Remote);
+                Chassis_ChangeMode(Chassis_speed);
+                Chassis_SetSteerRef(0.0f);
+                Chassis_SetMotorRef(0.0f);
+                break;
+            }
+            case Remote_SWITCH_DOWN: {
+                Chassis_ChangeRemoteMode(Chassis_Remote);
+                Chassis_ChangeMode(Chassis_speed);
+                Chassis_SetSteerRef(0.0f);
+                Chassis_SetMotorRef(0.0f);
+                break;
+            }
+             case Remote_SWITCH_UP: {
+                SetServoInitOffset(0.0f);
+                Chassis_ChangeRemoteMode(Chassis_Remote);
+                Chassis_ChangeMode(Chassis_speed);
+                Chassis_SetSteerRef(0.0f);
+                Chassis_SetMotorRef(0.0f);
+                break;
+             }
             default:
                 break;
         }
@@ -96,6 +149,7 @@ void Remote_ControlCom() {
         Chassis_ChangeMode(Chassis_speed);
         Chassis_SetSteerRef(0.0f);
         Chassis_SetMotorRef(0.0f);
+
     }
 
     control_data->pending = 0;
@@ -112,8 +166,35 @@ void Remote_RemoteProcess() {
     Chassis_DataTypeDef *chassis = Chassis_GetChassisDataPtr();
     
     if (chassis->mode == Chassis_torque) {
-        // Chassis_SetMotorRef(data->remote.ch[1] * Const_Remote_Torque_Gain);
+        Chassis_SetMotorRef(data->remote.ch[1] * Const_Remote_Torque_Gain);
+    }
+    else if (chassis->mode == Chassis_speed) {
+        Chassis_SetMotorRef(data->remote.ch[1] * Const_Remote_Speed_Gain);
+    }
+    
+    Chassis_SetSteerRef(-data->remote.ch[2] * Const_Remote_Steer_Gain);
+}
+
+void Remote_RemoteProcess_RWD() {
+    Remote_RemoteDataTypeDef *data = Remote_GetRemoteDataPtr();
+    Chassis_DataTypeDef *chassis = Chassis_GetChassisDataPtr();
+    
+    if (chassis->mode == Chassis_torque) {
         Chassis_SetMotorRef_RWD(data->remote.ch[1] * Const_Remote_Torque_Gain);
+    }
+    else if (chassis->mode == Chassis_speed) {
+        Chassis_SetMotorRef(data->remote.ch[1] * Const_Remote_Speed_Gain);
+    }
+    
+    Chassis_SetSteerRef(-data->remote.ch[2] * Const_Remote_Steer_Gain);
+}
+
+void Remote_RemoteProcess_4WD() {
+    Remote_RemoteDataTypeDef *data = Remote_GetRemoteDataPtr();
+    Chassis_DataTypeDef *chassis = Chassis_GetChassisDataPtr();
+    
+    if (chassis->mode == Chassis_torque) {
+        Chassis_SetMotorRef_4WD(data->remote.ch[1] * Const_Remote_Torque_Gain);
     }
     else if (chassis->mode == Chassis_speed) {
         Chassis_SetMotorRef(data->remote.ch[1] * Const_Remote_Speed_Gain);

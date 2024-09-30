@@ -50,6 +50,7 @@ void Chassis_ChangeMode(Chassis_ControlEnum mode);
 void Chassis_ChangeRemoteMode(Chassis_RemoteEnum mode);
 void Chassis_SetMotorRef(float ref);
 void Chassis_SetMotorRef_RWD(float ref);
+void Chassis_SetMotorRef_4WD(float ref);
 void Chassis_SetSingleMotorRef(uint32_t motor_id, float ref);
 void Chassis_SetSteerRef(float ref);
 
