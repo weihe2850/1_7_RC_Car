@@ -1,8 +1,0 @@
-prefix=/home/inin/weihe_ws/devel
-
-Name: ntrip
-Description: Description of ntrip
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: geometry_msgs mavros_msgs roscpp std_msgs message_runtime
