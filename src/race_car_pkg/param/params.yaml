@@ -1,0 +1,59 @@
+UWB_Flag: 1
+#基础跟踪 无航向角
+# lookahead_length: 7
+# Kp_yaw: 2.3
+# V_rate: 0.7
+# Kp_r: 0.8
+# Kp_V: 1.0
+# Ki_V: 0.0
+# dt: 0.002
+lookahead_length: 3
+Kp_yaw: 3.0
+V_rate: 0.6
+Kp_r: 0.6
+Kp_V: 1.0
+Ki_V: 0.0
+dt: 0.002
+#楚昂最速
+x_la_ca: 0.5
+Kp_ca: 1.2
+V_rate_ca: 0.4
+Kp_r_ca: 1.0
+Kp_V_ca: 0.35
+Ki_V_ca: 0.0
+dt_ca: 0.002
+
+TxR_integral_min:      -1.0
+TxR_integral_max:      1.0
+TxR_max:       0.75
+TxR_min:       -0.75
+
+Const_Output_to_Torque: 0.000093
+Const_Gear_Ratio: 5.0
+load_csv_file_path: "/home/inin/weihe_ws/data/load_planning.csv"
+
+save_csv_file_path: "/home/inin/weihe_ws/data/save_map_tiantai.csv"
+save_csv_time: 10.0
+
+
+# 初始点的经纬度116.30369032 39.96312287 
+const_origin_latitude: 39.96300548 
+const_origin_longitude: 116.30368265
+EARTH_RADIUS: 6371000.0
+angle_rotation:  -0.15
+UWB_x_offset: 0
+UWB_y_offset: 0
+
+vehicle_params:
+  a: 0.2  # 前轴距
+  b: 0.22 # 后轴距
+  width: 0.32 # 轮距
+  mass: 8.0 # 质量
+  inertia: 8.0 # 转动惯量
+  max_steering_angle: 0.5 # 最大转向角
+
+tire_params:
+  friction_coefficient: 0.5
+  Radius: 0.054 # 胎圈直径
+  Cf: 1 # 滚动阻力系数
+  Cr: 1 # 横向阻力系数

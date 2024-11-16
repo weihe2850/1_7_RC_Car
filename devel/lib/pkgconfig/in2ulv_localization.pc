@@ -1,0 +1,8 @@
+prefix=/home/inin/weihe_ws/devel
+
+Name: in2ulv_localization
+Description: Description of in2ulv_localization
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

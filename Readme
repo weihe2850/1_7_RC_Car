@@ -1,0 +1,30 @@
+运行绕花园一圈的轨迹跟踪代码：
+(遥控手柄左右拨杆都处于最上方位置为自动驾驶模式,右拨杆拨到中间位置则取消自动驾驶,原地停下)
+step0:
+screen -S H (screen -r <name> 可以查看挂起的终端)
+新建一个screen 防止ssh断开后程序终止运行
+
+step1:
+roslaunch Race_Car_pkg start.launch   
+启动ROS 并启动串口节点和组合导航系统 并且此时会开始记录车辆的运行轨迹数据 数据保存路径为serial_node.cpp中的csv_path
+同时会启动自动驾驶节点
+
+step2:
+rostopic echo /filter/positionlla  
+查看是否有位置数据 以检验gps信号是否良好(rostopic echo /nmea可以查看搜星质量)
+
+step3:
+crtl+A+D挂起screen
+再拨动遥控器拨杆 启动自动驾驶模式
+
+记录轨迹：
+(遥控手柄左右拨杆都处于最上方位置为自动驾驶模式,右拨杆拨到中间位置则取消自动驾驶,原地停下)
+step0:
+screen -S H
+新建一个screen 防止ssh断开后程序终止运行
+
+step1:
+roslaunch Race_Car_pkg start.launch   
+启动ROS 并启动串口节点和组合导航系统 并且此时会开始记录车辆的运行轨迹数据 数据保存路径为serial_node.cpp中的csv_path
+同时会启动自动驾驶节点
+目前为20s保存一次路点数据

@@ -1,0 +1,38 @@
+<launch>
+  <node  name="xsens_mti_node" pkg="xsens_mti_driver" type="xsens_mti_node" output="screen">
+    <rosparam command="load" file="$(find xsens_mti_driver)/param/xsens_mti_node.yaml" />
+  </node>
+
+  <arg name="model" default="$(find xsens_mti_driver)/urdf/MTi_6xx.urdf"/>
+  <arg name="rvizconfig" default="$(find xsens_mti_driver)/rviz/display.rviz" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" /> -->
+
+  <node name="ntrip_node" pkg="ntrip" type="ntrip_node" output="screen">
+      <param name="ip" type="string"  value="120.253.239.161" />  <!-- Change to the IP address of Your NTRIP service-->
+      <param name="port" type="int" value="8002" />  <!-- Change to your port number for WGS84 -->
+      <param name="user" type="string" value="Your_User_Name" /> <!-- Change to your username -->
+      <param name="passwd" type = "string" value="Your_Password" /> <!-- Change to your password -->
+      <param name="mountpoint" type = "string" value="RTCM33_GRCE" /> <!-- Change to your mountpoint -->
+      <param name="report_interval" type = "int" value="1" /> <!-- the report interval to the NTRIP Caster, default is 1 sec -->
+  </node>
+  
+    <node pkg="nlink_parser" type="linktrack" name="linktrack0" output="screen">
+        <param name="port_name" value="/dev/UWB_tag0"/>
+        <param name="baud_rate" value="921600" />
+    </node>
+
+     <!-- localization_node -->
+    <node pkg="in2ulv_localization" type="localization_node" name="localization_node"
+          required="true" clear_params="true" output="screen">
+        <rosparam command="load" file="$(find in2ulv_localization)/config/localization_node.yaml"/>
+        <rosparam command="load" file="$(find in2ulv_localization)/config/sensor_handler.yaml"/>
+    </node>
+  <!-- 运行 talker 节点 -->
+  <rosparam file="$(find race_car_pkg)/param/params.yaml" command="load"/>
+  <node pkg="race_car_pkg" type="serial_node" name="serial_node"  />
+  <!-- <node pkg="my_serial_node" type="Control_node_Planning_ca" name="Control_node_Planning_ca" output="screen"/> -->
+  <!-- <node pkg="race_car_pkg" type="Control_node_Planning_hw" name="Control_node_Planning_hw" output="screen"/> -->
+
+</launch>
+
