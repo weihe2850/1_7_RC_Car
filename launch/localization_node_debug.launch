@@ -1,0 +1,11 @@
+<launch>
+    <!-- 使用录制的包需要这个参数  -->
+    <param name="use_sim_time" value="true" />
+
+    <!-- localization_node -->
+    <node pkg="in2ulv_localization" type="localization_node" name="localization_node"
+          required="true" clear_params="true" output="screen" launch-prefix="xterm -e gdb -ex run --args">
+        <rosparam command="load" file="$(find in2ulv_localization)/config/localization_node.yaml" />
+        <rosparam command="load" file="$(find in2ulv_localization)/config/sensor_handler.yaml" />
+    </node>
+</launch>

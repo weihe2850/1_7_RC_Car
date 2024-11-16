@@ -1,0 +1,8 @@
+# 帧头，包含时间戳信息
+std_msgs/Header header
+
+# 站点位置
+geometry_msgs/Point[] station_positions
+---
+# 目标站点索引
+int16 target_index

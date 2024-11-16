@@ -1,0 +1,11 @@
+# 帧头，包含时间戳信息
+std_msgs/Header header
+
+# 是否将当前定位结果作为目标点位置
+bool use_localization_result
+
+# use_localization_result 为 false 时候，需要设置目标点位置
+geometry_msgs/Point position
+---
+# 是否在 lanelet 上
+bool within

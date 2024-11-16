@@ -1,0 +1,19 @@
+# 帧头，包含时间戳信息
+std_msgs/Header header
+
+# 指令类型序列
+uint8[] hmi_command_list
+
+# 目标点序列
+# 注意长度和 hmi_command_list 中的 HEAD_FOR_GOAL 任务数量匹配
+geometry_msgs/Point[] target_point_list
+
+# station id
+# 注意和 target_point_list 长度一致
+uint32[] station_id_list
+---
+# 指令接收状态
+bool receive_status
+
+# 指令接收信息
+string receive_info

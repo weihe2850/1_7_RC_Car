@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/work/in2ulv-v2/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_base/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_common/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_control/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_cuda_lidar_euclidean_cluster_detect/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_decision/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_hmibackstage/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_localization/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_map/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_perception/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_planning/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_tshow/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_vision_perception/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_core/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_examples/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_io/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_maps/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_matching/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_projection/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_python/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_routing/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_traffic_rules/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/lanelet2/lanelet2_validation/include/**",
+        "/home/work/in2ulv-v2/src/3rdparty/ndt_omp/include/**",
+        "/home/work/in2ulv-v2/src/in2ulv_utm/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

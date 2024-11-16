@@ -1,0 +1,11 @@
+# 帧头，包含时间戳信息
+std_msgs/Header header
+
+# 模式设置
+uint8 mode_type
+---
+# 指令接收状态
+bool receive_status
+
+# 指令接收信息
+string receive_info

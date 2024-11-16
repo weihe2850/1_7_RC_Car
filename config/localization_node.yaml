@@ -1,0 +1,17 @@
+# 控制 rviz 开启
+rviz_debug: true
+# 控制 EKF 的文件 log 输出
+ekf_debug: false
+
+# rviz 中各位姿 frame_id
+pc_map_frame_id: "/map"
+ins_frame_id: "/ins"
+lidar_frame_id: "/rslidar"
+ndt_frame_id: "/ndt"
+#ekf_pose_frame_id: "/ekf"
+ekf_pose_frame_id: "/base_link"
+
+# 定位节点融合更新频率
+node_frequency: 30
+# 激光雷达处理间隔，如果将其下述参数设置为 5，则定位节点在接收到 5 次后才会处理下一次
+lidar_interval: 5

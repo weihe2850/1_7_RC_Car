@@ -1,0 +1,11 @@
+uint8[] requested_primitives
+
+# Geometric upper bound of map data requested
+float64[3] geom_upper_bound
+
+# Geometric lower bound of map data requested
+float64[3] geom_lower_bound
+
+---
+HDMapBin map
+int32  answer
