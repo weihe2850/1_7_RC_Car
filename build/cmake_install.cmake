@@ -137,7 +137,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/inin/weihe_ws/build/nlink_parser/cmake_install.cmake")
   include("/home/inin/weihe_ws/build/race_car_pkg/cmake_install.cmake")
   include("/home/inin/weihe_ws/build/ntrip/cmake_install.cmake")
-  include("/home/inin/weihe_ws/build/xsens_ros_mti_driver/cmake_install.cmake")
+  include("/home/inin/weihe_ws/build/xsens_mti_driver/cmake_install.cmake")
 
 endif()
 

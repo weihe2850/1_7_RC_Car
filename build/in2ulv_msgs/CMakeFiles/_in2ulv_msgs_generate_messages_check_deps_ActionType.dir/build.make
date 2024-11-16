@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/inin/weihe_ws/build
 include in2ulv_msgs/CMakeFiles/_in2ulv_msgs_generate_messages_check_deps_ActionType.dir/progress.make
 
 in2ulv_msgs/CMakeFiles/_in2ulv_msgs_generate_messages_check_deps_ActionType:
-	cd /home/inin/weihe_ws/build/in2ulv_msgs && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py in2ulv_msgs /home/inin/weihe_ws/src/in2ulv_msgs/system/msg/ActionType.msg std_msgs/Header:geometry_msgs/Point
+	cd /home/inin/weihe_ws/build/in2ulv_msgs && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py in2ulv_msgs /home/inin/weihe_ws/src/in2ulv_msgs/system/msg/ActionType.msg geometry_msgs/Point:std_msgs/Header
 
 _in2ulv_msgs_generate_messages_check_deps_ActionType: in2ulv_msgs/CMakeFiles/_in2ulv_msgs_generate_messages_check_deps_ActionType
 _in2ulv_msgs_generate_messages_check_deps_ActionType: in2ulv_msgs/CMakeFiles/_in2ulv_msgs_generate_messages_check_deps_ActionType.dir/build.make

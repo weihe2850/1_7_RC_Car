@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(race_car_pkg_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/inin/weihe_ws/src/race_car_pkg/include " STREQUAL " ")
   set(race_car_pkg_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/inin/weihe_ws/src/race_car_pkg/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(race_car_pkg_EXPORTED_TARGETS "race_car_pkg_generate_messages_cpp;race_car_pkg_generate_messages_eus;race_car_pkg_generate_messages_lisp;race_car_pkg_generate_messages_nodejs;race_car_pkg_generate_messages_py")
+set(race_car_pkg_EXPORTED_TARGETS "")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${race_car_pkg_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${race_car_pkg_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "message_runtime")
+set(depends "message_runtime;roscpp;rospy;std_msgs;serial;tf2;nlink_parser;in2ulv_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(race_car_pkg_EXPORTED_TARGETS ${${race_car_pkg_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "race_car_pkg-msg-extras.cmake")
+set(pkg_cfg_extras "")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${race_car_pkg_DIR}/${extra})

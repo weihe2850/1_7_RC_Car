@@ -7,11 +7,8 @@ race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o
  /home/inin/weihe_ws/devel/include/nlink_parser/LinktrackNodeframe2.h
  /home/inin/weihe_ws/src/nlink_parser/extern/serial/include/serial/serial.h
  /home/inin/weihe_ws/src/nlink_parser/extern/serial/include/serial/v8stdint.h
+ /home/inin/weihe_ws/src/race_car_pkg/include/race_car_pkg/serial_node.h
  /home/inin/weihe_ws/src/race_car_pkg/src/serial_node.cpp
- /opt/ros/noetic/include/geometry_msgs/Point.h
- /opt/ros/noetic/include/geometry_msgs/Pose.h
- /opt/ros/noetic/include/geometry_msgs/PoseStamped.h
- /opt/ros/noetic/include/geometry_msgs/Quaternion.h
  /opt/ros/noetic/include/geometry_msgs/Twist.h
  /opt/ros/noetic/include/geometry_msgs/TwistStamped.h
  /opt/ros/noetic/include/geometry_msgs/Vector3.h
@@ -73,11 +70,9 @@ race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o
  /opt/ros/noetic/include/ros/wall_timer.h
  /opt/ros/noetic/include/ros/wall_timer_options.h
  /opt/ros/noetic/include/rosconsole/macros_generated.h
- /opt/ros/noetic/include/std_msgs/Float32.h
  /opt/ros/noetic/include/std_msgs/Float64MultiArray.h
  /opt/ros/noetic/include/std_msgs/Header.h
  /opt/ros/noetic/include/std_msgs/MultiArrayDimension.h
  /opt/ros/noetic/include/std_msgs/MultiArrayLayout.h
- /opt/ros/noetic/include/std_msgs/String.h
  /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
  /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h

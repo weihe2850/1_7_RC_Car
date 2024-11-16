@@ -1,27 +1,24 @@
-UWB_Flag: 1
+UWB_Flag: 0
 #基础跟踪 无航向角
 # lookahead_length: 7
 # Kp_yaw: 2.3
 # V_rate: 0.7
-# Kp_r: 0.8
-# Kp_V: 1.0
-# Ki_V: 0.0
-# dt: 0.002
+
+Kp_r: 0.6
+Kp_V: 0.35
+Ki_V: 0.0
+dt: 0.002
+
+#何威最速
 lookahead_length: 3
 Kp_yaw: 3.0
 V_rate: 0.6
-Kp_r: 0.6
-Kp_V: 1.0
-Ki_V: 0.0
-dt: 0.002
 #楚昂最速
 x_la_ca: 0.5
 Kp_ca: 1.2
 V_rate_ca: 0.4
-Kp_r_ca: 1.0
-Kp_V_ca: 0.35
-Ki_V_ca: 0.0
-dt_ca: 0.002
+
+
 
 TxR_integral_min:      -1.0
 TxR_integral_max:      1.0

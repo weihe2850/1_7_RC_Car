@@ -3,6 +3,6 @@ prefix=/home/inin/weihe_ws/devel
 Name: race_car_pkg
 Description: Description of race_car_pkg
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/inin/weihe_ws/src/race_car_pkg/include
 Libs: -L${prefix}/lib 
-Requires: message_runtime
+Requires: message_runtime roscpp rospy std_msgs serial tf2 nlink_parser in2ulv_msgs

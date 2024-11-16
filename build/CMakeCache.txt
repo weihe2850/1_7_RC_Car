@@ -933,10 +933,10 @@ uuid_msgs_DIR:PATH=/opt/ros/noetic/share/uuid_msgs/cmake
 xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
 
 //Value Computed by CMake
-xsens_mti_driver_BINARY_DIR:STATIC=/home/inin/weihe_ws/build/xsens_ros_mti_driver
+xsens_mti_driver_BINARY_DIR:STATIC=/home/inin/weihe_ws/build/xsens_mti_driver
 
 //Value Computed by CMake
-xsens_mti_driver_SOURCE_DIR:STATIC=/home/inin/weihe_ws/src/xsens_ros_mti_driver
+xsens_mti_driver_SOURCE_DIR:STATIC=/home/inin/weihe_ws/src/xsens_mti_driver
 
 
 ########################
@@ -1160,7 +1160,7 @@ EIGEN_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //Details about finding Boost
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/include][cfound components: system filesystem date_time iostreams regex ][v1.71.0(1.55.0)]
 //Details about finding Eigen
-FIND_PACKAGE_MESSAGE_DETAILS_Eigen:INTERNAL=[/usr/include/eigen3][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_Eigen:INTERNAL=[/usr/include/eigen3][v(3.1)]
 //Details about finding FLANN
 FIND_PACKAGE_MESSAGE_DETAILS_FLANN:INTERNAL=[/usr/lib/aarch64-linux-gnu/libflann_cpp.so][/usr/include][v()]
 //Details about finding OpenMP

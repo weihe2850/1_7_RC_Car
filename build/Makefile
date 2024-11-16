@@ -2534,173 +2534,30 @@ run_tests_serial_gtest_serial-test-timer/fast:
 .PHONY : run_tests_serial_gtest_serial-test-timer/fast
 
 #=============================================================================
-# Target rules for targets named Control_node_Planning_ca
+# Target rules for targets named control_node_hw
 
 # Build rule for target.
-Control_node_Planning_ca: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Control_node_Planning_ca
-.PHONY : Control_node_Planning_ca
+control_node_hw: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 control_node_hw
+.PHONY : control_node_hw
 
 # fast build rule for target.
-Control_node_Planning_ca/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/Control_node_Planning_ca.dir/build.make race_car_pkg/CMakeFiles/Control_node_Planning_ca.dir/build
-.PHONY : Control_node_Planning_ca/fast
+control_node_hw/fast:
+	$(MAKE) -f race_car_pkg/CMakeFiles/control_node_hw.dir/build.make race_car_pkg/CMakeFiles/control_node_hw.dir/build
+.PHONY : control_node_hw/fast
 
 #=============================================================================
-# Target rules for targets named Control_node_Planning_hw
+# Target rules for targets named control_node_ca
 
 # Build rule for target.
-Control_node_Planning_hw: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Control_node_Planning_hw
-.PHONY : Control_node_Planning_hw
+control_node_ca: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 control_node_ca
+.PHONY : control_node_ca
 
 # fast build rule for target.
-Control_node_Planning_hw/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/Control_node_Planning_hw.dir/build.make race_car_pkg/CMakeFiles/Control_node_Planning_hw.dir/build
-.PHONY : Control_node_Planning_hw/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_generate_messages
-
-# Build rule for target.
-race_car_pkg_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_generate_messages
-.PHONY : race_car_pkg_generate_messages
-
-# fast build rule for target.
-race_car_pkg_generate_messages/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_generate_messages.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_generate_messages.dir/build
-.PHONY : race_car_pkg_generate_messages/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_geneus
-
-# Build rule for target.
-race_car_pkg_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_geneus
-.PHONY : race_car_pkg_geneus
-
-# fast build rule for target.
-race_car_pkg_geneus/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_geneus.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_geneus.dir/build
-.PHONY : race_car_pkg_geneus/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_generate_messages_eus
-
-# Build rule for target.
-race_car_pkg_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_generate_messages_eus
-.PHONY : race_car_pkg_generate_messages_eus
-
-# fast build rule for target.
-race_car_pkg_generate_messages_eus/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus.dir/build
-.PHONY : race_car_pkg_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_generate_messages_lisp
-
-# Build rule for target.
-race_car_pkg_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_generate_messages_lisp
-.PHONY : race_car_pkg_generate_messages_lisp
-
-# fast build rule for target.
-race_car_pkg_generate_messages_lisp/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_lisp.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_lisp.dir/build
-.PHONY : race_car_pkg_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named _catkin_empty_exported_target
-
-# Build rule for target.
-_catkin_empty_exported_target: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/_catkin_empty_exported_target.dir/build.make race_car_pkg/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_genlisp
-
-# Build rule for target.
-race_car_pkg_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_genlisp
-.PHONY : race_car_pkg_genlisp
-
-# fast build rule for target.
-race_car_pkg_genlisp/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_genlisp.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_genlisp.dir/build
-.PHONY : race_car_pkg_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_generate_messages_cpp
-
-# Build rule for target.
-race_car_pkg_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_generate_messages_cpp
-.PHONY : race_car_pkg_generate_messages_cpp
-
-# fast build rule for target.
-race_car_pkg_generate_messages_cpp/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_cpp.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_cpp.dir/build
-.PHONY : race_car_pkg_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_gencpp
-
-# Build rule for target.
-race_car_pkg_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_gencpp
-.PHONY : race_car_pkg_gencpp
-
-# fast build rule for target.
-race_car_pkg_gencpp/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_gencpp.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_gencpp.dir/build
-.PHONY : race_car_pkg_gencpp/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_generate_messages_nodejs
-
-# Build rule for target.
-race_car_pkg_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_generate_messages_nodejs
-.PHONY : race_car_pkg_generate_messages_nodejs
-
-# fast build rule for target.
-race_car_pkg_generate_messages_nodejs/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_nodejs.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_nodejs.dir/build
-.PHONY : race_car_pkg_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_gennodejs
-
-# Build rule for target.
-race_car_pkg_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_gennodejs
-.PHONY : race_car_pkg_gennodejs
-
-# fast build rule for target.
-race_car_pkg_gennodejs/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_gennodejs.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_gennodejs.dir/build
-.PHONY : race_car_pkg_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named race_car_pkg_generate_messages_py
-
-# Build rule for target.
-race_car_pkg_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_generate_messages_py
-.PHONY : race_car_pkg_generate_messages_py
-
-# fast build rule for target.
-race_car_pkg_generate_messages_py/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_py.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_py.dir/build
-.PHONY : race_car_pkg_generate_messages_py/fast
+control_node_ca/fast:
+	$(MAKE) -f race_car_pkg/CMakeFiles/control_node_ca.dir/build.make race_car_pkg/CMakeFiles/control_node_ca.dir/build
+.PHONY : control_node_ca/fast
 
 #=============================================================================
 # Target rules for targets named serial_node
@@ -2716,17 +2573,17 @@ serial_node/fast:
 .PHONY : serial_node/fast
 
 #=============================================================================
-# Target rules for targets named race_car_pkg_genpy
+# Target rules for targets named _catkin_empty_exported_target
 
 # Build rule for target.
-race_car_pkg_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 race_car_pkg_genpy
-.PHONY : race_car_pkg_genpy
+_catkin_empty_exported_target: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
+.PHONY : _catkin_empty_exported_target
 
 # fast build rule for target.
-race_car_pkg_genpy/fast:
-	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_genpy.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_genpy.dir/build
-.PHONY : race_car_pkg_genpy/fast
+_catkin_empty_exported_target/fast:
+	$(MAKE) -f race_car_pkg/CMakeFiles/_catkin_empty_exported_target.dir/build.make race_car_pkg/CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================
 # Target rules for targets named geographic_msgs_generate_messages_nodejs
@@ -3089,7 +2946,7 @@ xsens_mti_node: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_node/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_node.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_node.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_node.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_node.dir/build
 .PHONY : xsens_mti_node/fast
 
 #=============================================================================
@@ -3102,7 +2959,7 @@ xsens_mti_driver_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_generate_messages_py/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_py.dir/build
 .PHONY : xsens_mti_driver_generate_messages_py/fast
 
 #=============================================================================
@@ -3115,7 +2972,7 @@ nmea_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 nmea_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_cpp.dir/build.make xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_cpp.dir/build.make xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_cpp.dir/build
 .PHONY : nmea_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -3128,7 +2985,7 @@ xsens_mti_driver_gennodejs: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_gennodejs/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_gennodejs.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_gennodejs.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_gennodejs.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_gennodejs.dir/build
 .PHONY : xsens_mti_driver_gennodejs/fast
 
 #=============================================================================
@@ -3141,7 +2998,7 @@ nmea_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 nmea_msgs_generate_messages_eus/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_eus.dir/build.make xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_eus.dir/build.make xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_eus.dir/build
 .PHONY : nmea_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -3154,7 +3011,7 @@ nmea_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 nmea_msgs_generate_messages_py/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_py.dir/build.make xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_py.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_py.dir/build.make xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_py.dir/build
 .PHONY : nmea_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -3167,7 +3024,7 @@ xsens_mti_driver_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_generate_messages_lisp/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_lisp.dir/build
 .PHONY : xsens_mti_driver_generate_messages_lisp/fast
 
 #=============================================================================
@@ -3180,7 +3037,7 @@ xsens_mti_driver_genpy: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_genpy/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_genpy.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_genpy.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_genpy.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_genpy.dir/build
 .PHONY : xsens_mti_driver_genpy/fast
 
 #=============================================================================
@@ -3193,7 +3050,7 @@ nmea_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 nmea_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_nodejs.dir/build.make xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_nodejs.dir/build.make xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_nodejs.dir/build
 .PHONY : nmea_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -3206,7 +3063,7 @@ xsens_mti_driver_generate_messages: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_generate_messages/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages.dir/build
 .PHONY : xsens_mti_driver_generate_messages/fast
 
 #=============================================================================
@@ -3219,7 +3076,7 @@ _xsens_mti_driver_generate_messages_check_deps_XsStatusWord: cmake_check_build_s
 
 # fast build rule for target.
 _xsens_mti_driver_generate_messages_check_deps_XsStatusWord/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/build.make xsens_ros_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/build.make xsens_mti_driver/CMakeFiles/_xsens_mti_driver_generate_messages_check_deps_XsStatusWord.dir/build
 .PHONY : _xsens_mti_driver_generate_messages_check_deps_XsStatusWord/fast
 
 #=============================================================================
@@ -3232,7 +3089,7 @@ xsens_mti_driver_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_generate_messages_cpp/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_cpp.dir/build
 .PHONY : xsens_mti_driver_generate_messages_cpp/fast
 
 #=============================================================================
@@ -3245,7 +3102,7 @@ nmea_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 nmea_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_lisp.dir/build.make xsens_ros_mti_driver/CMakeFiles/nmea_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_lisp.dir/build.make xsens_mti_driver/CMakeFiles/nmea_msgs_generate_messages_lisp.dir/build
 .PHONY : nmea_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -3258,7 +3115,7 @@ xsens_mti_driver_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_generate_messages_eus/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_eus.dir/build
 .PHONY : xsens_mti_driver_generate_messages_eus/fast
 
 #=============================================================================
@@ -3271,7 +3128,7 @@ xsens_mti_driver_geneus: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_geneus/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_geneus.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_geneus.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_geneus.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_geneus.dir/build
 .PHONY : xsens_mti_driver_geneus/fast
 
 #=============================================================================
@@ -3284,7 +3141,7 @@ xsens_mti_driver_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_generate_messages_nodejs/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_generate_messages_nodejs.dir/build
 .PHONY : xsens_mti_driver_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -3297,7 +3154,7 @@ xsens_mti_driver_gencpp: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_gencpp/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_gencpp.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_gencpp.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_gencpp.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_gencpp.dir/build
 .PHONY : xsens_mti_driver_gencpp/fast
 
 #=============================================================================
@@ -3310,7 +3167,7 @@ xsens_mti_driver_genlisp: cmake_check_build_system
 
 # fast build rule for target.
 xsens_mti_driver_genlisp/fast:
-	$(MAKE) -f xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_genlisp.dir/build.make xsens_ros_mti_driver/CMakeFiles/xsens_mti_driver_genlisp.dir/build
+	$(MAKE) -f xsens_mti_driver/CMakeFiles/xsens_mti_driver_genlisp.dir/build.make xsens_mti_driver/CMakeFiles/xsens_mti_driver_genlisp.dir/build
 .PHONY : xsens_mti_driver_genlisp/fast
 
 # Help Target
@@ -3508,21 +3365,10 @@ help:
 	@echo "... clean_test_results_serial"
 	@echo "... serial-test-timer"
 	@echo "... run_tests_serial_gtest_serial-test-timer"
-	@echo "... Control_node_Planning_ca"
-	@echo "... Control_node_Planning_hw"
-	@echo "... race_car_pkg_generate_messages"
-	@echo "... race_car_pkg_geneus"
-	@echo "... race_car_pkg_generate_messages_eus"
-	@echo "... race_car_pkg_generate_messages_lisp"
-	@echo "... _catkin_empty_exported_target"
-	@echo "... race_car_pkg_genlisp"
-	@echo "... race_car_pkg_generate_messages_cpp"
-	@echo "... race_car_pkg_gencpp"
-	@echo "... race_car_pkg_generate_messages_nodejs"
-	@echo "... race_car_pkg_gennodejs"
-	@echo "... race_car_pkg_generate_messages_py"
+	@echo "... control_node_hw"
+	@echo "... control_node_ca"
 	@echo "... serial_node"
-	@echo "... race_car_pkg_genpy"
+	@echo "... _catkin_empty_exported_target"
 	@echo "... geographic_msgs_generate_messages_nodejs"
 	@echo "... ntrip_geneus"
 	@echo "... ntrip_genlisp"

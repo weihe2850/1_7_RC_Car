@@ -1,2 +1,2 @@
-in2ulv_common:in2ulv_localization:in2ulv_msgs:nlink_parser:ntrip:race_car_pkg:xsens_ros_mti_driver
+in2ulv_common:in2ulv_localization:in2ulv_msgs:nlink_parser:ntrip:race_car_pkg:xsens_mti_driver
 -DCATKIN_DEVEL_PREFIX=/home/inin/weihe_ws/devel -DCMAKE_INSTALL_PREFIX=/home/inin/weihe_ws/install -G Unix Makefiles
