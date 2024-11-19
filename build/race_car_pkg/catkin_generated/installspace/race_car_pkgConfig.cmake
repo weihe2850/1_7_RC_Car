@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(race_car_pkg_EXPORTED_TARGETS "")
+set(race_car_pkg_EXPORTED_TARGETS "race_car_pkg_generate_messages_cpp;race_car_pkg_generate_messages_eus;race_car_pkg_generate_messages_lisp;race_car_pkg_generate_messages_nodejs;race_car_pkg_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${race_car_pkg_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(race_car_pkg_EXPORTED_TARGETS ${${race_car_pkg_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "race_car_pkg-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${race_car_pkg_DIR}/${extra})

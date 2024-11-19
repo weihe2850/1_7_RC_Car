@@ -1,18 +1,23 @@
-UWB_Flag: 0
+UWB_Flag: true
+# UWB_Flag: false
 #基础跟踪 无航向角
 # lookahead_length: 7
 # Kp_yaw: 2.3
 # V_rate: 0.7
 
-Kp_r: 0.6
+Kp_r: 0.2
 Kp_V: 0.35
-Ki_V: 0.0
+Ki_V: 0.001
 dt: 0.002
 
 #何威最速
-lookahead_length: 3
-Kp_yaw: 3.0
+lookahead_length: 5
+Kp_yaw: 1.0
 V_rate: 0.6
+
+# lookahead_length: 5
+# Kp_yaw: 3.0
+# V_rate: 0.6
 #楚昂最速
 x_la_ca: 0.5
 Kp_ca: 1.2
@@ -24,13 +29,17 @@ TxR_integral_min:      -1.0
 TxR_integral_max:      1.0
 TxR_max:       0.75
 TxR_min:       -0.75
+delta_max:  0.7854
 
-Const_Output_to_Torque: 0.000093
+
+Const_Current_data_to_Torque: 0.000093
 Const_Gear_Ratio: 5.0
-load_csv_file_path: "/home/inin/weihe_ws/data/load_planning.csv"
+Const_rpm_to_mps: 0.005655
+# load_csv_file_path: "/home/inin/weihe_ws/data/load_planning.csv"
+load_csv_file_path: "/home/inin/weihe_ws/data/UWB_test.csv"
 
 save_csv_file_path: "/home/inin/weihe_ws/data/save_map_tiantai.csv"
-save_csv_time: 10.0
+save_csv_time: 5.0
 
 
 # 初始点的经纬度116.30369032 39.96312287 

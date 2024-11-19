@@ -4,6 +4,7 @@
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /home/inin/weihe_ws/devel/include/in2ulv_msgs/LocalizationInfo.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /home/inin/weihe_ws/devel/include/nlink_parser/LinktrackNode2.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /home/inin/weihe_ws/devel/include/nlink_parser/LinktrackNodeframe2.h
+race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /home/inin/weihe_ws/devel/include/race_car_pkg/CarStates.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /home/inin/weihe_ws/src/nlink_parser/extern/serial/include/serial/serial.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /home/inin/weihe_ws/src/nlink_parser/extern/serial/include/serial/v8stdint.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /home/inin/weihe_ws/src/race_car_pkg/include/race_car_pkg/serial_node.h
@@ -69,10 +70,7 @@ race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/i
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/ros/wall_timer.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/ros/wall_timer_options.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/rosconsole/macros_generated.h
-race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/std_msgs/Float64MultiArray.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/std_msgs/Header.h
-race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/std_msgs/MultiArrayDimension.h
-race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/std_msgs/MultiArrayLayout.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 race_car_pkg/CMakeFiles/serial_node.dir/src/serial_node.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h
 

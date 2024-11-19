@@ -1,4 +1,5 @@
 #include "race_car_pkg/serial_node.h"
+#include "race_car_pkg/CarStates.h"
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -8,21 +9,32 @@
 namespace serial_node
 {
     SerialNode::SerialNode()
-        : steering_angle_(0), current_data_(0), speed_RR_(0), speed_RL_(0),
-          V_(0), beta_(0), r_(0), accel_x_(0), accel_y_(0), speed_R_(0), delta_(0), TxR_(0),
-          Ux_(0), Uy_(0), UWB_x_(0), UWB_y_(0), ekf_x_(0), ekf_y_(0),
+        : Ux_(0), Uy_(0), r_(0), accel_x_(0), accel_y_(0), speed_R_(0), delta_(0), Single_Motor_TxR_(0),
           latitude_(0), longitude_(0), altitude_(0),
-          roll_(0), pitch_(0), yaw_(0), gps_states_(0)
+          roll_(0), pitch_(0), yaw_(0), gps_states_(0),
+          UWB_x_(0), UWB_y_(0), ekf_x_(0), ekf_y_(0),
+
+          is_csv_initialized_(false),
+          ekf_timeout_(1.0), // 设置 EKF 数据的超时时间为 1 秒
+          UWB_Flag_(false)        // 初始化 UWB_Flag
     {
+        ekf_attitude_.x = 0.0;
+        ekf_attitude_.y = 0.0;
+        ekf_attitude_.z = 0.0;
+
+        ekf_linear_velocity_.x = 0.0;
+        ekf_linear_velocity_.y = 0.0;
+        ekf_linear_velocity_.z = 0.0;
         ros::param::get("save_csv_file_path", csv_path_);
-        states_pub_ = nh_.advertise<std_msgs::Float64MultiArray>("states", 1000);
+        ros::param::get("UWB_Flag", UWB_Flag_); 
+        states_pub_ = nh_.advertise<race_car_pkg::CarStates>("CarStates", 1000);
         filter_free_accel_sub_ = nh_.subscribe("/filter/free_acceleration", 1000, &SerialNode::freeAccelerationCallback, this);
         filter_twist_sub_ = nh_.subscribe("filter/twist", 1000, &SerialNode::twistCallback, this);
         filter_positionlla_sub_ = nh_.subscribe("/filter/positionlla", 1000, &SerialNode::positionCallback, this);
         nmea_sub_ = nh_.subscribe("/nmea", 1000, &SerialNode::nmeaCallback, this);
         filter_euler_sub_ = nh_.subscribe("/filter/euler", 1000, &SerialNode::eulerCallback, this);
         sub_nodeframe2_ = nh_.subscribe("/nlink_linktrack_nodeframe2", 1000, &SerialNode::My_Nodeframe2Callback, this);
-        EKF_sub_ = nh_.subscribe("/ULV_utm_localization_info", 1000, &SerialNode::EKF_Callback, this);
+        EKF_sub_ = nh_.subscribe("/ULV_utm_localization_info", 1000, &SerialNode::EKFCallback, this);
 
         serial::Timeout to = serial::Timeout::simpleTimeout(100);
         ser_.setPort("/dev/stm32_vcp");
@@ -45,6 +57,8 @@ namespace serial_node
         {
             throw std::runtime_error("Failed to open serial port");
         }
+
+        last_ekf_time_ = ros::Time(0); // 初始化 EKF 数据时间为 0
     }
 
     void SerialNode::nmeaCallback(const nmea_msgs::Sentence::ConstPtr& msg)
@@ -98,35 +112,87 @@ namespace serial_node
         UWB_x_ = msg.pos_3d[0];
         UWB_y_ = msg.pos_3d[1];
     }
-
-    void SerialNode::EKF_Callback(const in2ulv_msgs::LocalizationInfoConstPtr& msg)
+    void SerialNode::EKFCallback(const in2ulv_msgs::LocalizationInfoConstPtr& msg)
     {
         ekf_x_ = msg->position.x;
         ekf_y_ = msg->position.y;
+        ekf_attitude_ = msg->attitude;
+        ekf_linear_velocity_ = msg->linear_velocity;
+
+        last_ekf_time_ = ros::Time::now(); // 更新 EKF 数据的接收时间
+        // ROS_INFO_STREAM("EKFCallback called: ekf_x_ = " << ekf_x_ << ", ekf_y_ = " << ekf_y_);
     }
 
-    void SerialNode::saveToCSV(const std::vector<std::array<double, kStateSize>>& data)
+
+    bool SerialNode::useEKF()
     {
-        std::ofstream file(csv_path_);
-        if (!file.is_open())
+        // 判断是否有最近的 EKF 数据，并且未超时，同时 UWB_Flag_ 为1
+        ros::Time current_time = ros::Time::now();
+        bool is_ekf_fresh = (current_time - last_ekf_time_).toSec() <= ekf_timeout_;
+        bool is_flag_set = (UWB_Flag_);
+
+        if (is_ekf_fresh && is_flag_set)
         {
-            std::cerr << "Failed to open file for writing." << std::endl;
-            return;
+            // ROS_INFO_STREAM("Using EKF data.");
+            return true;
+        }
+        else
+        {
+            // ROS_WARN_STREAM("Not using EKF data. EKF fresh ");
+            return false;
+        }
+    }
+
+    void SerialNode::saveToCSV(const std::vector<race_car_pkg::CarStates>& data)
+    {
+        std::ofstream file;
+        if (!is_csv_initialized_) {
+            // 第一次写入时清空文件并写入表头
+            file.open(csv_path_, std::ios::out | std::ios::trunc);
+            if (!file.is_open())
+            {
+                std::cerr << "Failed to open file for writing." << std::endl;
+                return;
+            }
+            file << "Ux_mps,Uy_mps,r_radps,ax_mps2,ay_mps2,speed_rpm,delta_rad,Single_Motor_TxR_Nm,latitude,longitude,altitude,roll_rad,pitch_rad,yaw_rad,gps_state,UWB_x_m,UWB_y_m,EKF_x_m,EKF_y_m\n";
+            is_csv_initialized_ = true;
+        }
+        else {
+            // 之后的写入以追加模式进行
+            file.open(csv_path_, std::ios::app);
+            if (!file.is_open())
+            {
+                std::cerr << "Failed to open file for writing." << std::endl;
+                return;
+            }
         }
 
-        file << "Ux_mps,Uy_mps,r_radps,ax_mps2,ay_mps2,speed_rpm,delta_rad,Single_Motor_TxR_Nm,latitude,longitude,altitude,roll_rad,pitch_rad,yaw_rad,gps_state,UWB_x_m,UWB_y_m,EKF_x_m,EKF_y_m\n";
         for (const auto& entry : data)
         {
-            for (size_t i = 0; i < kStateSize; ++i)
-            {
-                file << std::fixed << std::setprecision(8) << entry[i];
-                if (i < kStateSize - 1)
-                {
-                    file << ",";
-                }
-            }
-            file << "\n";
+            file << std::fixed << std::setprecision(8)
+                << entry.Ux_mps << ","
+                << entry.Uy_mps << ","
+                << entry.r_radps << ","
+                << entry.ax_mps2 << ","
+                << entry.ay_mps2 << ","
+                << entry.speed_rpm << ","
+                << entry.delta_rad << ","
+                << entry.Single_Motor_TxR_Nm << ","
+                << entry.latitude << ","
+                << entry.longitude << ","
+                << entry.altitude << ","
+                << entry.roll_rad << ","
+                << entry.pitch_rad << ","
+                << entry.yaw_rad << ","
+                << entry.gps_state << ","
+                << entry.UWB_x_m << ","
+                << entry.UWB_y_m << ","
+                << entry.EKF_x_m << ","
+                << entry.EKF_y_m << "\n";
         }
+
+        // 清空数据向量
+        states_values_vector_.clear();
     }
 
     void SerialNode::run()
@@ -134,12 +200,21 @@ namespace serial_node
         ros::Rate loop_rate(50);
         ros::Time start_time = ros::Time::now();
 
-        float Const_Output_to_Torque, Const_Gear_Ratio, UWB_x_offset, UWB_y_offset, save_csv_time;
-        ros::param::get("Const_Output_to_Torque", Const_Output_to_Torque);
+        float Const_Current_data_to_Torque, Const_Gear_Ratio, UWB_x_offset, UWB_y_offset, save_csv_time;
+        ros::param::get("Const_Current_data_to_Torque", Const_Current_data_to_Torque);
         ros::param::get("Const_Gear_Ratio", Const_Gear_Ratio);
         ros::param::get("UWB_x_offset", UWB_x_offset);
         ros::param::get("UWB_y_offset", UWB_y_offset);
         ros::param::get("save_csv_time", save_csv_time);
+        
+        // 等待 EKF_x_m 和 EKF_y_m 不同时为 0
+        ROS_WARN_STREAM("Waiting for valid EKF data...");
+        while (ros::ok() && (ekf_x_ == 0.0 && ekf_y_ == 0.0))
+        {
+            ros::spinOnce();
+            loop_rate.sleep();
+        }
+        ROS_WARN_STREAM("Valid EKF data received. Ready to run");
 
         while (ros::ok())
         {
@@ -172,36 +247,54 @@ namespace serial_node
                             memcpy(&current_data_, &r_buffer[82], sizeof(float));
                             speed_R_ = (-1 * speed_RR_ + speed_RL_) / Const_Gear_Ratio / 2;
                             delta_ = steering_angle_ * DEG_TO_RAD;
-                            TxR_ = current_data_ * Const_Output_to_Torque;
+                            Single_Motor_TxR_ = current_data_ * Const_Current_data_to_Torque;
                         }
                     }
                 }
             }
 
-            states_values_[Ux_Index] = Ux_;
-            states_values_[Uy_Index] = Uy_;
-            states_values_[r_Index] = r_;
-            states_values_[accel_x_Index] = accel_x_;
-            states_values_[accel_y_Index] = accel_y_;
-            states_values_[speed_R_Index] = speed_R_;
-            states_values_[delta_Index] = delta_;
-            states_values_[TxR_Index] = TxR_;
-            states_values_[latitude_Index] = latitude_;
-            states_values_[longitude_Index] = longitude_;
-            states_values_[altitude_Index] = altitude_;
-            states_values_[roll_Index] = roll_;
-            states_values_[pitch_Index] = pitch_;
-            states_values_[yaw_Index] = yaw_;
-            states_values_[gps_states_Index] = gps_states_;
-            states_values_[UWB_x_Index] = UWB_x_ - UWB_x_offset;
-            states_values_[UWB_y_Index] = UWB_y_ - UWB_y_offset;
-            states_values_[EKF_x_Index] = ekf_x_ - UWB_x_offset;
-            states_values_[EKF_y_Index] = ekf_y_ - UWB_y_offset;
-            states_values_vector_.push_back(states_values_);
+            race_car_pkg::CarStates car_states;
+            car_states.Ux_mps = Ux_;
+            car_states.Uy_mps = Uy_;
+            car_states.r_radps = r_;
+            car_states.ax_mps2 = accel_x_;
+            car_states.ay_mps2 = accel_y_;
+            car_states.speed_rpm = speed_R_;
+            car_states.delta_rad = delta_;
+            car_states.Single_Motor_TxR_Nm = Single_Motor_TxR_;
+            car_states.latitude = latitude_;
+            car_states.longitude = longitude_;
+            car_states.altitude = altitude_;
+            car_states.roll_rad = roll_;
+            car_states.pitch_rad = pitch_;
+            car_states.yaw_rad = yaw_;
+            car_states.gps_state = gps_states_;
+            car_states.UWB_x_m = UWB_x_ - UWB_x_offset;
+            car_states.UWB_y_m = UWB_y_ - UWB_y_offset;
+            car_states.EKF_x_m = ekf_x_ - UWB_x_offset;
+            car_states.EKF_y_m = ekf_y_ - UWB_y_offset;
 
-            std_msgs::Float64MultiArray states_array;
-            states_array.data.assign(states_values_.begin(), states_values_.end());
-            states_pub_.publish(states_array);
+            // 判断是否使用 EKF 数据
+            if (useEKF())
+            {
+                car_states.Ux_mps = ekf_linear_velocity_.x;
+                car_states.Uy_mps = ekf_linear_velocity_.y;
+                car_states.EKF_x_m = ekf_x_ - UWB_x_offset;
+                car_states.EKF_y_m = ekf_y_ - UWB_y_offset;
+
+                car_states.roll_rad = ekf_attitude_.x;
+                car_states.pitch_rad = ekf_attitude_.y;
+                car_states.yaw_rad = ekf_attitude_.z;
+            }
+            else
+            {
+                // 使用 twistCallback 的数据
+                car_states.EKF_x_m = 0.0;
+                car_states.EKF_y_m = 0.0;
+            }
+
+            states_values_vector_.push_back(car_states);
+            states_pub_.publish(car_states);
 
             loop_rate.sleep();
             ros::spinOnce();

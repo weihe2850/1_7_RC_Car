@@ -53,14 +53,21 @@ CMAKE_BINARY_DIR = /home/inin/weihe_ws/build
 # Include the progress variables for this target.
 include race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus.dir/progress.make
 
+race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus: /home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/msg/CarStates.l
 race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus: /home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/manifest.l
 
 
+/home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/msg/CarStates.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/msg/CarStates.l: /home/inin/weihe_ws/src/race_car_pkg/msg/CarStates.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from race_car_pkg/CarStates.msg"
+	cd /home/inin/weihe_ws/build/race_car_pkg && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/inin/weihe_ws/src/race_car_pkg/msg/CarStates.msg -Irace_car_pkg:/home/inin/weihe_ws/src/race_car_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p race_car_pkg -o /home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/msg
+
 /home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp manifest code for race_car_pkg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for race_car_pkg"
 	cd /home/inin/weihe_ws/build/race_car_pkg && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg race_car_pkg std_msgs
 
 race_car_pkg_generate_messages_eus: race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus
+race_car_pkg_generate_messages_eus: /home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/msg/CarStates.l
 race_car_pkg_generate_messages_eus: /home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/manifest.l
 race_car_pkg_generate_messages_eus: race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus.dir/build.make
 

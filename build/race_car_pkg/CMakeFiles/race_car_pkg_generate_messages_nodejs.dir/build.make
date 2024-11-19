@@ -53,6 +53,16 @@ CMAKE_BINARY_DIR = /home/inin/weihe_ws/build
 # Include the progress variables for this target.
 include race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_nodejs.dir/progress.make
 
+race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_nodejs: /home/inin/weihe_ws/devel/share/gennodejs/ros/race_car_pkg/msg/CarStates.js
+
+
+/home/inin/weihe_ws/devel/share/gennodejs/ros/race_car_pkg/msg/CarStates.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/inin/weihe_ws/devel/share/gennodejs/ros/race_car_pkg/msg/CarStates.js: /home/inin/weihe_ws/src/race_car_pkg/msg/CarStates.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from race_car_pkg/CarStates.msg"
+	cd /home/inin/weihe_ws/build/race_car_pkg && ../catkin_generated/env_cached.sh /home/inin/anaconda3/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/inin/weihe_ws/src/race_car_pkg/msg/CarStates.msg -Irace_car_pkg:/home/inin/weihe_ws/src/race_car_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p race_car_pkg -o /home/inin/weihe_ws/devel/share/gennodejs/ros/race_car_pkg/msg
+
+race_car_pkg_generate_messages_nodejs: race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_nodejs
+race_car_pkg_generate_messages_nodejs: /home/inin/weihe_ws/devel/share/gennodejs/ros/race_car_pkg/msg/CarStates.js
 race_car_pkg_generate_messages_nodejs: race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_nodejs.dir/build.make
 
 .PHONY : race_car_pkg_generate_messages_nodejs

@@ -100,10 +100,6 @@ stdio.h
 stdint.h
 -
 
-/home/inin/weihe_ws/src/nlink_parser/src/linktrack/protocols.cpp
-protocols.h
-/home/inin/weihe_ws/src/nlink_parser/src/linktrack/protocols.h
-
 /home/inin/weihe_ws/src/nlink_parser/src/linktrack/protocols.h
 nlink_protocol.h
 /home/inin/weihe_ws/src/nlink_parser/src/linktrack/nlink_protocol.h

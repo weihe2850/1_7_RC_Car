@@ -1,8 +1,10 @@
 roslaunch race_car_pkg start.launch   
 
-roslaunch in2ulv_localization localization_node.launch   
-
 rosrun race_car_pkg control_node_ca
+
+rosrun race_car_pkg control_node_hw
+rostopic echo /CarStates
+
 sudo shutdown -h now
 rosbag record -a
 screen -S H
@@ -23,7 +25,7 @@ rostopic list
 rostopic echo /filter/velocity
 rostopic echo /gnss_pose
 rostopic echo /nmea
-rostopic echo /states
+
 rostopic echo /imu/data
 rostopic echo /filter/velocity
 rostopic echo /nlink_linktrack_nodeframe2
@@ -33,7 +35,7 @@ rostopic echo /ULV_action_type
 rostopic echo /ULV_map_localization_info
 rostopic echo /ULV_module_info
 rostopic echo /ULV_utm_localization_info
-
+rostopic hz /ULV_utm_localization_info
 | imu/acceleration         | geometry_msgs/Vector3Stamped    |                                                                                                                   | 1-400Hz(MTi-600 and MTi-100 series), 1-100Hz(MTi-1 series)                      |
 | imu/angular_velocity     | geometry_msgs/Vector3Stamped    |                                                                                                               | 1-400Hz(MTi-600 and MTi-100 series), 1-100Hz(MTi-1 series)                      |
 | imu/data                 | sensor_msgs/Imu                 |
@@ -89,3 +91,22 @@ git stash
 
 # 应用暂存的工作区
 git stash pop
+
+
+  <!-- 设置 URDF 模型和 RViz 配置文件的参数 -->
+  <arg name="model" default="$(find xsens_mti_driver)/urdf/MTi_6xx.urdf"/>
+  <arg name="rvizconfig" default="$(find xsens_mti_driver)/rviz/display.rviz" />
+  <!-- 加载机器人描述参数 -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
+
+  <!-- 启动 ntrip_node 节点，用于处理 NTRIP 服务 -->
+  <node name="ntrip_node" pkg="ntrip" type="ntrip_node" output="screen">
+    <!-- 配置 NTRIP 服务的参数 -->
+    <param name="ip" type="string" value="120.253.239.161" />  <!-- 更改为您的 NTRIP 服务的 IP 地址 -->
+    <param name="port" type="int" value="8002" />  <!-- 更改为您的端口号 -->
+    <param name="user" type="string" value="Your_User_Name" /> <!-- 更改为您的用户名 -->
+    <param name="passwd" type="string" value="Your_Password" /> <!-- 更改为您的密码 -->
+    <param name="mountpoint" type="string" value="RTCM33_GRCE" /> <!-- 更改为您的挂载点 -->
+    <param name="report_interval" type="int" value="1" /> <!-- 向 NTRIP Caster 报告的间隔，默认为 1 秒 -->
+  </node>
+  

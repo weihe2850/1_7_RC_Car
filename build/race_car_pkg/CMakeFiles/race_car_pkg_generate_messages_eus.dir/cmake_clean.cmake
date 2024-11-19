@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/manifest.l"
+  "/home/inin/weihe_ws/devel/share/roseus/ros/race_car_pkg/msg/CarStates.l"
   "CMakeFiles/race_car_pkg_generate_messages_eus"
 )
 

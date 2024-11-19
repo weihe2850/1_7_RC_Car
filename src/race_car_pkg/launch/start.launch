@@ -5,23 +5,6 @@
     <rosparam command="load" file="$(find xsens_mti_driver)/param/xsens_mti_node.yaml" />
   </node>
 
-  <!-- 设置 URDF 模型和 RViz 配置文件的参数 -->
-  <arg name="model" default="$(find xsens_mti_driver)/urdf/MTi_6xx.urdf"/>
-  <arg name="rvizconfig" default="$(find xsens_mti_driver)/rviz/display.rviz" />
-  <!-- 加载机器人描述参数 -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)" />
-
-  <!-- 启动 ntrip_node 节点，用于处理 NTRIP 服务 -->
-  <node name="ntrip_node" pkg="ntrip" type="ntrip_node" output="screen">
-    <!-- 配置 NTRIP 服务的参数 -->
-    <param name="ip" type="string" value="120.253.239.161" />  <!-- 更改为您的 NTRIP 服务的 IP 地址 -->
-    <param name="port" type="int" value="8002" />  <!-- 更改为您的端口号 -->
-    <param name="user" type="string" value="Your_User_Name" /> <!-- 更改为您的用户名 -->
-    <param name="passwd" type="string" value="Your_Password" /> <!-- 更改为您的密码 -->
-    <param name="mountpoint" type="string" value="RTCM33_GRCE" /> <!-- 更改为您的挂载点 -->
-    <param name="report_interval" type="int" value="1" /> <!-- 向 NTRIP Caster 报告的间隔，默认为 1 秒 -->
-  </node>
-  
   <!-- 启动 linktrack0 节点，用于处理 UWB 标签数据 -->
   <node pkg="nlink_parser" type="linktrack" name="linktrack0" output="screen">
     <!-- 配置 UWB 标签的串口参数 -->
@@ -31,7 +14,7 @@
 
   <!-- 启动 EKF_Func 节点，用于处理 EKF 本地化 -->
   <node pkg="in2ulv_localization" type="localization_node" name="localization_node"
-        required="true" clear_params="true" >
+        required="true" clear_params="true"  >
     <!-- 加载 localization_node 的参数文件 -->
     <rosparam command="load" file="$(find in2ulv_localization)/config/localization_node.yaml"/>
     <rosparam command="load" file="$(find in2ulv_localization)/config/sensor_handler.yaml"/>
@@ -41,7 +24,7 @@
   <rosparam file="$(find race_car_pkg)/param/params.yaml" command="load"/>
 
   <!-- 启动 serial_node 节点，用于处理串口通信 -->
-  <node pkg="race_car_pkg" type="serial_node" name="serial_node" />
+  <node pkg="race_car_pkg" type="serial_node" name="serial_node" output="screen" />
 
   <!-- 启动 Control_node_ca 节点，用于控制逻辑（已注释） -->
   <!-- <node pkg="race_car_pkg" type="Control_node_ca" name="Control_node_ca" output="screen"/> -->

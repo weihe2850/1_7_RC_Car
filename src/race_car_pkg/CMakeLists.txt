@@ -13,22 +13,32 @@ find_package(catkin REQUIRED COMPONENTS
   in2ulv_msgs
 )
 
+# 指定消息文件目录和文件
+add_message_files(
+  FILES
+  CarStates.msg
+)
+
+# 生成消息
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
 find_package(Eigen3 REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include
   CATKIN_DEPENDS
-  message_runtime
-  roscpp
-  rospy
-  std_msgs
-  serial
-  tf2
-  nlink_parser
-  in2ulv_msgs
+    message_runtime
+    roscpp
+    rospy
+    std_msgs
+    serial
+    tf2
+    nlink_parser
+    in2ulv_msgs
 )
-
-SET(CMAKE_BUILD_TYPE "RelWithDebInfo")
 
 include_directories(
   include
@@ -43,11 +53,8 @@ target_link_libraries(serial_node
 
 add_executable(control_node_hw src/control_node_hw.cpp src/control_node.cpp)
 target_link_libraries(control_node_hw ${catkin_LIBRARIES})
+add_dependencies(control_node_hw ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 add_executable(control_node_ca src/control_node_ca.cpp src/control_node.cpp)
 target_link_libraries(control_node_ca ${catkin_LIBRARIES})
-
-add_executable(control_node_mpc src/control_node_mpc.cpp src/control_node.cpp)
-target_link_libraries(control_node_mpc ${catkin_LIBRARIES})
-
-
+add_dependencies(control_node_ca ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
