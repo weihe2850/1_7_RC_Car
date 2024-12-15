@@ -3,6 +3,8 @@ roslaunch race_car_pkg start.launch
 rosrun race_car_pkg control_node_ca
 
 rosrun race_car_pkg control_node_hw
+
+rosrun race_car_pkg mpc_main
 rostopic echo /CarStates
 
 sudo shutdown -h now
@@ -11,6 +13,7 @@ screen -S H
 screen -ls
 screen -r
 
+scp C:\Users\ASUS\Downloads\CoinHSL-archive.v2023.11.17.aarch64-apple-darwin-libgfortran5.tar.gz Orin_dannyfomer:/home/inin/weihe_ws/related_pkg/
 catkin_make --pkg in2ulv_localization
 catkin_make --pkg race_car_pkg
 find ./ -type f |xargs touch

@@ -1,4 +1,5 @@
 #include "race_car_pkg/control_node.h"
+#include "race_car_pkg/mpc_func.h"
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -36,6 +37,15 @@ namespace control_node
         gps_states_ = msg->gps_state;
         UWB_x_ = msg->UWB_x_m;
         UWB_y_ = msg->UWB_y_m;
+        ekf_x_ = msg->EKF_x_m;
+        ekf_y_ = msg->EKF_y_m;
+
+        current_point_.latitude_data = msg->latitude;
+        current_point_.longitude_data = msg->longitude;
+        current_point_.yaw_data = msg->yaw_rad; 
+        current_point_.Ux_data = msg->Ux_mps;   
+        current_point_.Uy_data = msg->Uy_mps;   
+        current_point_.r_data = msg->r_radps;
     }
 
     void ControlNode::calculateXY(TrajectoryPoint& point)
@@ -65,14 +75,16 @@ namespace control_node
 
         if (UWB_Flag_)
         {
-            point.x_data = UWB_x_;
-            point.y_data = UWB_y_;
+            point.x_data = ekf_x_;
+            point.y_data = ekf_y_;
         }
         else
         {
             point.x_data = dx;
             point.y_data = dy;
         }
+            // 其他数据的赋值
+        
     }
 
     std::vector<TrajectoryPoint> ControlNode::readTrajectoryPoints()
@@ -201,21 +213,21 @@ namespace control_node
 
     float ControlNode::calculate_TxR_pid(float V_car, float V_ref)
     {
-        float Kp_V, Ki_V, dt, TxR_integral_min, TxR_integral_max, TxR_min, TxR_max;
+        float Kp_V, Ki_V, dt, TxR_integral_min, TxR_integral_max, Single_Motor_TxR_min, Single_Motor_TxR_max;
         ros::param::get("Kp_V", Kp_V);
         ros::param::get("Ki_V", Ki_V);
         ros::param::get("dt", dt);
         ros::param::get("TxR_integral_min", TxR_integral_min);
         ros::param::get("TxR_integral_max", TxR_integral_max);
-        ros::param::get("TxR_min", TxR_min);
-        ros::param::get("TxR_max", TxR_max);
+        ros::param::get("Single_Motor_TxR_min", Single_Motor_TxR_min);
+        ros::param::get("Single_Motor_TxR_max", Single_Motor_TxR_max);
 
         static float integral_error = 0;
         float error = V_ref - V_car;
         integral_error += error * dt;
         integral_error = std::max(TxR_integral_min, std::min(integral_error, TxR_integral_max));
         float TxR_pi = Kp_V * error + Ki_V * integral_error;
-        TxR_pi = std::max(TxR_min, std::min(TxR_pi, TxR_max));
+        TxR_pi = std::max( Single_Motor_TxR_min, std::min(TxR_pi, Single_Motor_TxR_max));
         return TxR_pi;
     }
 
@@ -227,12 +239,10 @@ namespace control_node
         return lateral_error;
     }
 
-    TrajectoryPoint ControlNode::findLookaheadPoints(TrajectoryPoint& current_position, const std::vector<TrajectoryPoint>& ref_points)
+    TrajectoryPoint ControlNode::findLookaheadPoint(TrajectoryPoint& current_position, const std::vector<TrajectoryPoint>& ref_points, int lookahead_length)
     {
         double min_distance = std::numeric_limits<double>::max();
         int nearest_point_index = -1;
-        int lookahead_length;
-        ros::param::get("lookahead_length", lookahead_length);
 
         for (int i = 0; i < ref_points.size(); ++i) {
             double distance = sqrt(pow(ref_points[i].x_data - current_position.x_data, 2) + pow(ref_points[i].y_data - current_position.y_data, 2));
@@ -248,6 +258,35 @@ namespace control_node
         // ROS_INFO_STREAM("Lookahead Point Index: " << lookahead_index << ", x = " << ref_points[lookahead_index].x_data << ", y = " << ref_points[lookahead_index].y_data);
 
         return ref_points[lookahead_index];
+    }
+
+    std::vector<TrajectoryPoint> ControlNode::findLookaheadPoints(const TrajectoryPoint& current_position,  const std::vector<TrajectoryPoint>& ref_points, int points_num) 
+    {
+        std::vector<TrajectoryPoint> reference_trajectory;
+        double current_speed;
+        current_speed = current_position.Ux_data;
+        int lookahead_length_Kspeed;
+        ros::param::get("lookahead_length_Kspeed", lookahead_length_Kspeed);
+
+        // 找到最近点的索引
+        double min_distance = std::numeric_limits<double>::max();
+        int nearest_point_index = -1;
+        for (int i = 0; i < ref_points.size(); ++i) {
+            double distance = sqrt(pow(ref_points[i].x_data - current_position.x_data, 2) + pow(ref_points[i].y_data - current_position.y_data, 2));
+            if (distance < min_distance) {
+                min_distance = distance;
+                nearest_point_index = i;
+            }
+        }
+        // 生成参考轨迹序列
+        // 根据速度计算间隔
+        int interval = std::max(1, static_cast<int>(current_speed * lookahead_length_Kspeed)); // 速度越快，间隔越大，最小间隔为1
+        
+        for (int i = 0; i < points_num; ++i) {
+            int index = std::min(nearest_point_index + i * interval, static_cast<int>(ref_points.size()) - 1);
+            reference_trajectory.push_back(ref_points[index]);
+        }
+        return reference_trajectory;
     }
 
     void ControlNode::serial_init(const std::string& com_port, uint32_t baud_rate)
@@ -266,6 +305,25 @@ namespace control_node
             ROS_INFO_STREAM("Serial Port initialized");
         } else {
             return;
+        }
+    }
+
+    void ControlNode::serialLoop() 
+    {
+        ros::Rate rate(500); // 500Hz
+        while (ros::ok()) {
+            auto data = construct_data(delta_, Single_Motor_TxR_);
+
+            if (UWB_Flag_) {
+                ser_.write(data);
+            } else {
+                if (gps_states_ == 4) {
+                    ser_.write(data);
+                } else {
+                    ROS_INFO_STREAM("GPS_ERROR");
+                }
+            }
+            rate.sleep();
         }
     }
 

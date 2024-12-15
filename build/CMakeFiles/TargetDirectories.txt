@@ -262,12 +262,15 @@
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/rebuild_cache.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/edit_cache.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/test.dir
+/home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/control_node_df.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/control_node_ca.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/list_install_components.dir
+/home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/mpc_main.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/race_car_pkg_generate_messages.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/race_car_pkg_geneus.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/_race_car_pkg_generate_messages_check_deps_CarStates.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus.dir
+/home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/control_node_mpc.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_lisp.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/_catkin_empty_exported_target.dir
 /home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/race_car_pkg_genlisp.dir

@@ -8,8 +8,12 @@
 #include <nmea_msgs/Sentence.h>
 #include <nlink_parser/LinktrackNodeframe2.h>
 #include <in2ulv_msgs/LocalizationInfo.h>
+
 #include "race_car_pkg/CarStates.h"
 
+#include <thread>
+#include <chrono>
+#include <eigen3/Eigen/Dense>
 #include <serial/serial.h>
 #include <vector>
 #include <string>
@@ -35,7 +39,7 @@ namespace control_node
         ControlNode();
         void run();
         void serial_init(const std::string& com_port, uint32_t baud_rate = 115200);
-
+        void serialLoop();
     protected:
         void statesCallback(const race_car_pkg::CarStates::ConstPtr& msg);
         void calculateXY(TrajectoryPoint& point);
@@ -44,14 +48,16 @@ namespace control_node
         float calculate_delta_pid(float r_car, float r_ref);
         float calculate_TxR_pid(float V_car, float V_ref);
         double calculateLateralError(const TrajectoryPoint& current_point, const TrajectoryPoint& nearest_point);
-        TrajectoryPoint findLookaheadPoints(TrajectoryPoint& current_position, const std::vector<TrajectoryPoint>& ref_points);
+        TrajectoryPoint findLookaheadPoint(TrajectoryPoint& current_position, const std::vector<TrajectoryPoint>& ref_points, int lookahead_length);
+        std::vector<TrajectoryPoint> findLookaheadPoints(const TrajectoryPoint& current_position,  const std::vector<TrajectoryPoint>& ref_points,int points_num) ;
+        
         virtual void Control_func() = 0; 
 
         ros::NodeHandle nh_;
         ros::Subscriber states_sub_;
         serial::Serial ser_;
-        std::vector<TrajectoryPoint> ref_points_;
-        TrajectoryPoint origin_point_, current_point_, lookahead_points_;
+        std::vector<TrajectoryPoint> ref_points_, lookahead_points_;
+        TrajectoryPoint origin_point_, current_point_, lookahead_point_;
 
         double V_, beta_, r_, accel_x_, accel_y_, speed_R_, delta_, Single_Motor_TxR_;
         double Ux_, Uy_, UWB_x_, UWB_y_, ekf_x_, ekf_y_;

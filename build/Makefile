@@ -2534,6 +2534,19 @@ run_tests_serial_gtest_serial-test-timer/fast:
 .PHONY : run_tests_serial_gtest_serial-test-timer/fast
 
 #=============================================================================
+# Target rules for targets named control_node_df
+
+# Build rule for target.
+control_node_df: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 control_node_df
+.PHONY : control_node_df
+
+# fast build rule for target.
+control_node_df/fast:
+	$(MAKE) -f race_car_pkg/CMakeFiles/control_node_df.dir/build.make race_car_pkg/CMakeFiles/control_node_df.dir/build
+.PHONY : control_node_df/fast
+
+#=============================================================================
 # Target rules for targets named control_node_ca
 
 # Build rule for target.
@@ -2545,6 +2558,19 @@ control_node_ca: cmake_check_build_system
 control_node_ca/fast:
 	$(MAKE) -f race_car_pkg/CMakeFiles/control_node_ca.dir/build.make race_car_pkg/CMakeFiles/control_node_ca.dir/build
 .PHONY : control_node_ca/fast
+
+#=============================================================================
+# Target rules for targets named mpc_main
+
+# Build rule for target.
+mpc_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mpc_main
+.PHONY : mpc_main
+
+# fast build rule for target.
+mpc_main/fast:
+	$(MAKE) -f race_car_pkg/CMakeFiles/mpc_main.dir/build.make race_car_pkg/CMakeFiles/mpc_main.dir/build
+.PHONY : mpc_main/fast
 
 #=============================================================================
 # Target rules for targets named race_car_pkg_generate_messages
@@ -2597,6 +2623,19 @@ race_car_pkg_generate_messages_eus: cmake_check_build_system
 race_car_pkg_generate_messages_eus/fast:
 	$(MAKE) -f race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus.dir/build.make race_car_pkg/CMakeFiles/race_car_pkg_generate_messages_eus.dir/build
 .PHONY : race_car_pkg_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named control_node_mpc
+
+# Build rule for target.
+control_node_mpc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 control_node_mpc
+.PHONY : control_node_mpc
+
+# fast build rule for target.
+control_node_mpc/fast:
+	$(MAKE) -f race_car_pkg/CMakeFiles/control_node_mpc.dir/build.make race_car_pkg/CMakeFiles/control_node_mpc.dir/build
+.PHONY : control_node_mpc/fast
 
 #=============================================================================
 # Target rules for targets named race_car_pkg_generate_messages_lisp
@@ -3521,11 +3560,14 @@ help:
 	@echo "... clean_test_results_serial"
 	@echo "... serial-test-timer"
 	@echo "... run_tests_serial_gtest_serial-test-timer"
+	@echo "... control_node_df"
 	@echo "... control_node_ca"
+	@echo "... mpc_main"
 	@echo "... race_car_pkg_generate_messages"
 	@echo "... race_car_pkg_geneus"
 	@echo "... _race_car_pkg_generate_messages_check_deps_CarStates"
 	@echo "... race_car_pkg_generate_messages_eus"
+	@echo "... control_node_mpc"
 	@echo "... race_car_pkg_generate_messages_lisp"
 	@echo "... _catkin_empty_exported_target"
 	@echo "... race_car_pkg_genlisp"

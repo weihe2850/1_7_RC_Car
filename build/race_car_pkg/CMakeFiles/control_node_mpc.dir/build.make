@@ -70,9 +70,22 @@ race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node_mpc.cpp.s: cmake_f
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node_mpc.dir/src/control_node_mpc.cpp.s"
 	cd /home/inin/weihe_ws/build/race_car_pkg && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/inin/weihe_ws/src/race_car_pkg/src/control_node_mpc.cpp -o CMakeFiles/control_node_mpc.dir/src/control_node_mpc.cpp.s
 
+race_car_pkg/CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.o: race_car_pkg/CMakeFiles/control_node_mpc.dir/flags.make
+race_car_pkg/CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.o: /home/inin/weihe_ws/src/race_car_pkg/src/mpc_func.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object race_car_pkg/CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.o"
+	cd /home/inin/weihe_ws/build/race_car_pkg && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.o -c /home/inin/weihe_ws/src/race_car_pkg/src/mpc_func.cpp
+
+race_car_pkg/CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.i"
+	cd /home/inin/weihe_ws/build/race_car_pkg && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/inin/weihe_ws/src/race_car_pkg/src/mpc_func.cpp > CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.i
+
+race_car_pkg/CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.s"
+	cd /home/inin/weihe_ws/build/race_car_pkg && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/inin/weihe_ws/src/race_car_pkg/src/mpc_func.cpp -o CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.s
+
 race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node.cpp.o: race_car_pkg/CMakeFiles/control_node_mpc.dir/flags.make
 race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node.cpp.o: /home/inin/weihe_ws/src/race_car_pkg/src/control_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node.cpp.o"
 	cd /home/inin/weihe_ws/build/race_car_pkg && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/control_node_mpc.dir/src/control_node.cpp.o -c /home/inin/weihe_ws/src/race_car_pkg/src/control_node.cpp
 
 race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node.cpp.i: cmake_force
@@ -86,12 +99,14 @@ race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node.cpp.s: cmake_force
 # Object files for target control_node_mpc
 control_node_mpc_OBJECTS = \
 "CMakeFiles/control_node_mpc.dir/src/control_node_mpc.cpp.o" \
+"CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.o" \
 "CMakeFiles/control_node_mpc.dir/src/control_node.cpp.o"
 
 # External object files for target control_node_mpc
 control_node_mpc_EXTERNAL_OBJECTS =
 
 /home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc: race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node_mpc.cpp.o
+/home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc: race_car_pkg/CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.o
 /home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc: race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node.cpp.o
 /home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc: race_car_pkg/CMakeFiles/control_node_mpc.dir/build.make
 /home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc: /opt/ros/noetic/lib/libroscpp.so
@@ -115,7 +130,7 @@ control_node_mpc_EXTERNAL_OBJECTS =
 /home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
 /home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4
 /home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc: race_car_pkg/CMakeFiles/control_node_mpc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable /home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/inin/weihe_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable /home/inin/weihe_ws/devel/lib/race_car_pkg/control_node_mpc"
 	cd /home/inin/weihe_ws/build/race_car_pkg && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/control_node_mpc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

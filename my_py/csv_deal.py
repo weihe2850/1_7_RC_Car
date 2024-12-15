@@ -77,15 +77,13 @@ plt.scatter(dx, dy, label='xy')
 for i in range(0, len(dx), 20):
     plt.annotate(f'yaw(deg): {yaw[i]*180/pi:.2f}', (dx[i], dy[i]))
     
-
 plt.xlabel('X (m)', fontsize=legend_fontsize)  # 设置横坐标为时间，单位为秒
 plt.ylabel('Y (m)', fontsize=legend_fontsize)  # 设置纵坐标为速度，单位为米/秒
 
 plt.legend()
 
 plt.show()
-#将图形保存为文件
-plt.savefig('/home/inin/weihe_ws/figure/xy.png')
+
 
 
 

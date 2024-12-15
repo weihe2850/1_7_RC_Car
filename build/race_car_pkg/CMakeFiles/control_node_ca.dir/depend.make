@@ -8,6 +8,7 @@ race_car_pkg/CMakeFiles/control_node_ca.dir/src/control_node.cpp.o: /home/inin/w
 race_car_pkg/CMakeFiles/control_node_ca.dir/src/control_node.cpp.o: /home/inin/weihe_ws/src/nlink_parser/extern/serial/include/serial/serial.h
 race_car_pkg/CMakeFiles/control_node_ca.dir/src/control_node.cpp.o: /home/inin/weihe_ws/src/nlink_parser/extern/serial/include/serial/v8stdint.h
 race_car_pkg/CMakeFiles/control_node_ca.dir/src/control_node.cpp.o: /home/inin/weihe_ws/src/race_car_pkg/include/race_car_pkg/control_node.h
+race_car_pkg/CMakeFiles/control_node_ca.dir/src/control_node.cpp.o: /home/inin/weihe_ws/src/race_car_pkg/include/race_car_pkg/mpc_func.h
 race_car_pkg/CMakeFiles/control_node_ca.dir/src/control_node.cpp.o: /home/inin/weihe_ws/src/race_car_pkg/src/control_node.cpp
 race_car_pkg/CMakeFiles/control_node_ca.dir/src/control_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/Twist.h
 race_car_pkg/CMakeFiles/control_node_ca.dir/src/control_node.cpp.o: /opt/ros/noetic/include/geometry_msgs/TwistStamped.h

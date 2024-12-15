@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/inin/weihe_ws/src/race_car_pkg/src/control_node.cpp" "/home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node.cpp.o"
   "/home/inin/weihe_ws/src/race_car_pkg/src/control_node_mpc.cpp" "/home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/control_node_mpc.dir/src/control_node_mpc.cpp.o"
+  "/home/inin/weihe_ws/src/race_car_pkg/src/mpc_func.cpp" "/home/inin/weihe_ws/build/race_car_pkg/CMakeFiles/control_node_mpc.dir/src/mpc_func.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

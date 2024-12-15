@@ -125,6 +125,12 @@ in2ulv_msgs/LocalizationInfo.h
 -
 race_car_pkg/CarStates.h
 /home/inin/weihe_ws/src/race_car_pkg/include/race_car_pkg/race_car_pkg/CarStates.h
+thread
+-
+chrono
+-
+eigen3/Eigen/Dense
+-
 serial/serial.h
 -
 vector
@@ -132,9 +138,19 @@ vector
 string
 -
 
+/home/inin/weihe_ws/src/race_car_pkg/include/race_car_pkg/mpc_func.h
+casadi/casadi.hpp
+-
+iostream
+-
+eigen3/Eigen/Dense
+-
+
 /home/inin/weihe_ws/src/race_car_pkg/src/control_node.cpp
 race_car_pkg/control_node.h
 /home/inin/weihe_ws/src/race_car_pkg/src/race_car_pkg/control_node.h
+race_car_pkg/mpc_func.h
+/home/inin/weihe_ws/src/race_car_pkg/src/race_car_pkg/mpc_func.h
 iostream
 -
 fstream
